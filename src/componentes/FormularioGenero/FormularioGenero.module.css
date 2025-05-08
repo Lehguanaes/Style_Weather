@@ -1,18 +1,21 @@
+/* Fundo centralizado */
+.background {
+  min-height: 100vh; /* Permite crescer além da altura da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Winky Rough', sans-serif;
+  padding-top: 80px;    /* Espaço para a navbar */
+  padding-bottom: 100px; /* Espaço para o rodapé */
+  box-sizing: border-box;
+}
+
 /* Container principal */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-}
-
-/* Fundo centralizado */
-.background {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Winky Rough', sans-serif;
 }
 
 /* Card de cadastro */
