@@ -3,6 +3,7 @@
   height: 100vh;
   animation: fadeSlide 1s ease-in-out;
   transition: all 0.3s ease-in-out;
+  flex-direction: row;
 }
 
 .titulo {
@@ -45,12 +46,13 @@
 }
 
 .logoImg {
-  max-width: 315px;
+  max-width: 100%;
   height: auto;
   margin-bottom: 1.5rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: float 4s ease-in-out infinite;
+  display: block;
 }
 
 .logoImg:hover {
@@ -66,23 +68,25 @@
   animation: float 4s ease-in-out infinite;
 }
 
-.signup{
+.signup {
   margin-bottom: 100px;
 }
-
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
-.paragrafo{
-  margin-top:10px ;
+
+.paragrafo {
+  margin-top: 10px;
 }
-.frase{
+
+.frase {
   margin-top: 10px;
   margin-bottom: 20px;
   color: var(--cinza-claro);
 }
+
 .leftPanel {
   background-color: var(--preto);
   color: var(--branco);
@@ -91,6 +95,8 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  position: relative;
+  z-index: 0;
 }
 
 .rightPanel {
@@ -99,6 +105,9 @@
   display: flex;
   flex-direction: column;
   animation: fadeSlide 1.2s ease-in-out;
+  position: relative;
+  z-index: 1;
+  overflow: auto;
 }
 
 .nav {
@@ -168,6 +177,7 @@
   .container {
     flex-direction: column;
     background-color: var(--branco);
+    height: auto;
     gap: 0;
   }
 
@@ -180,7 +190,7 @@
   }
 
   .logoBox {
-    margin-bottom: 0rem;
+    margin-bottom: 1rem;
     margin-top: 2rem;
   }
 
