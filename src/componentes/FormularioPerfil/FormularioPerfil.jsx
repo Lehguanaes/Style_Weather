@@ -83,7 +83,7 @@ const FormularioPerfil = () => {
       // Se houver alterações, realizar a atualização
       if (Object.keys(updatedData).length > 0) {
         await updateDoc(docRef, updatedData);
-        SweetAlert.successPerfil("Perfil atualizado com sucesso!"); 
+        SweetAlert.success("Perfil atualizado com sucesso!"); 
       } else {
         SweetAlert.error("Nenhuma alteração foi feita.");
       }
