@@ -32,7 +32,7 @@ const NavbarLogin = () => {
   const handleUserMenuToggle = () => setUserMenuOpen(prev => !prev);
 
   const handleEditProfile = () => {
-    navigate('/editar-perfil');
+    navigate('git /editar-perfil');
     setUserMenuOpen(false);
   };
 

@@ -66,6 +66,10 @@
   animation: float 4s ease-in-out infinite;
 }
 
+.signup{
+  margin-bottom: 100px;
+}
+
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
