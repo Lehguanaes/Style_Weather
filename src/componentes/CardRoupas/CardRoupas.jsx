@@ -427,7 +427,7 @@ import LookCalor81 from '../../assets/looks/calor/neutras/trabalho/relogio.png';
 
 // Função para classificar temperatura
 const classificarTemperatura = (temperatura) => {
-    if (temperatura < 15) return "frio";
+    if (temperatura < 17) return "frio";
     if (temperatura < 25) return "ameno";
     return "calor";
 };
@@ -760,7 +760,7 @@ const sugestoesDeRoupa = {
         feminino: {
             frio: {
                 texto: "Combine elegância e conforto com um casaco estruturado, blusa de gola alta e calça ou saia midi.",
-                imagens: [LookFrio30, LookFrio31, LookFrio32, LookFrio33, LookFrio34],
+                imagens: [LookFrio94, LookFrio95, LookFrio96, LookFrio97, LookFrio98],
             },
             ameno: {
                 texto: "Opte por um visual leve e profissional, como blazer com blusa fluida e calça de alfaiataria.",
@@ -771,10 +771,11 @@ const sugestoesDeRoupa = {
                 imagens: [LookCalor68, LookCalor69, LookCalor70, LookCalor71, LookCalor72, LookCalor73],
             }
         },
+
         neutro: {
             frio: {
                 texto: "Vista um look discreto e profissional com suéter, camisa por baixo e calça de tecido encorpado.",
-                imagens: [LookFrio94, LookFrio95, LookFrio96, LookFrio97, LookFrio98],
+                imagens: [LookFrio86, LookFrio87, LookFrio88, LookFrio89, LookFrio90, LookFrio91, LookFrio92, LookFrio93],
             },
             ameno: {
                 texto: "Use peças versáteis e elegantes, como camisa de algodão e calça reta para o clima ameno.",
