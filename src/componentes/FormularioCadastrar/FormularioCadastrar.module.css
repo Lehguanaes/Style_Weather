@@ -1,0 +1,384 @@
+/* src/pages/Cadastrar/Cadastrar.module.css */
+@import url('https://fonts.cdnfonts.com/css/winky-rough');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --roxo-claro: #a076cb;
+  --roxo-base: #9b7cbb;
+  --roxo-escuro: #2e1647;
+  --branco: #ffffff;
+  --preto: #000000;
+}
+
+/* ---------- LAYOUT BASE ---------- */
+.background {
+  height: 100vh;
+  padding-top: 80px; /* Altura da navbar */
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.cardCadastro {
+  position: relative;
+  z-index: 1; /* Mantém abaixo do menu mobile */
+  margin: 50px auto 20px auto; 
+  width: 800px;
+  background: var(--branco);
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  border: 2px solid var(--roxo-claro);
+  transition: all 0.3s ease;
+}
+
+.cardCadastro:hover {
+  box-shadow: 0 12px 30px rgba(110, 76, 151, 0.15);
+  border-color: var(--roxo-base);
+}
+
+.inputs input,
+.inputs select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 2px solid var(--cinza-borda);
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--branco);
+  color: var(--cinza-texto);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(110, 76, 151, 0.05);
+}
+
+.inputs input:focus,
+.inputs select:focus {
+  outline: none;
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 0 3px rgba(160, 118, 203, 0.2);
+}
+
+.inputs input:hover,
+.inputs select:hover {
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 6px var(--sombra-hover);
+}
+
+
+/* ---------- LADO ESQUERDO ---------- */
+.ladoEsquerdo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  gap: 30px;
+}
+
+.man {
+  width: 220px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.avatar {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(110, 76, 151, 0.2);
+}
+
+/* ---------- TÍTULO ---------- */
+.titulo {
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  display: inline-block;
+  color: var(--roxo-escuro);
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.titulo::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  bottom: -8px;
+  left: 0;
+  background: linear-gradient(90deg, var(--roxo-claro), var(--roxo-escuro), var(--roxo-claro));
+  border-radius: 4px;
+  transform: scaleX(0.9);
+  transform-origin: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0.8;
+}
+
+.titulo:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+  height: 5px;
+}
+
+/* ---------- LABELS E INPUTS ---------- */
+.label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.label label {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Winky Rough', sans-serif;
+  color: var(--roxo-escuro);
+  margin-bottom: 5px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding-left: 20px;
+}
+
+.inputs input,
+.inputs select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 2px solid rgba(110, 76, 151, 0.3);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--branco);
+  color: var(--preto);
+  transition: border-color 0.3s ease;
+}
+
+.inputs input:focus,
+.inputs select:focus {
+  outline: none;
+  border-color: var(--roxo-base);
+}
+
+.inputs button {
+  width: 80%;
+  padding: 12px;
+  color: var(--branco);
+  background: linear-gradient(to right, var(--roxo-escuro), var(--roxo-base));
+
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Winky Rough', sans-serif;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.inputs button:hover {
+  background: var(--roxo-escuro);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(110, 76, 151, 0.3);
+}
+
+/* ---------- INPUT COM ÍCONE DE MOSTRAR SENHA ---------- */
+.senhaContainer {
+  position: relative;
+  width: 100%;
+}
+
+.inputSenha {
+  width: 100%;
+  padding: 12px 40px 12px 12px; /* Espaço à direita pro ícone */
+  margin: 8px 0;
+  border: 2px solid rgba(110, 76, 151, 0.3);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--branco);
+  color: var(--preto);
+  transition: border-color 0.3s ease;
+}
+
+.inputSenha:focus {
+  outline: none;
+  border-color: var(--roxo-base);
+}
+
+.iconeSenha {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--roxo-base);
+  font-size: 18px;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.iconeSenha:hover {
+  color: var(--roxo-escuro);
+}
+
+@media (max-width: 768px) {
+  /* Garante que a navbar e menu fiquem acima */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  /* Ajuste do menu mobile */
+  .buttons {
+    z-index: 999;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+  }
+  
+  /* Ajuste do card para não ser sobreposto */
+  .cardCadastro {
+    z-index: 1;
+  }
+  
+  /* Espaçamento extra para o avatar */
+  .avatar {
+    margin-top: 40px !important;
+  }
+} 
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 992px) {
+  .cardCadastro {
+    padding-top: 60px;
+    width: 95%;
+    padding: 30px 20px;
+  }
+
+  .ladoEsquerdo,
+  .inputs {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .inputs {
+    margin-top: 20px;
+  }
+
+  .titulo {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .titulo::after {
+    left: 50%;
+    transform: translateX(-50%) scaleX(0.9);
+    width: 80%;
+  }
+
+  .titulo:hover::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .avatar {
+    width: 180px;
+    height: 180px;
+  }
+
+  .inputs button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 1.6rem;
+  }
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .inputs input,
+  .inputs select {
+    font-size: 14px;
+  }
+
+  .inputs button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+
+@media (max-width: 550px) {
+  .cardCadastro {
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    padding: 25px 15px;
+    width: 100%;
+  }
+
+  .ladoEsquerdo, 
+  .inputs {
+    width: 100% !important; /* Força ocupar 100% da largura */
+    padding: 0;
+  }
+
+  .ladoEsquerdo {
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .avatar {
+    width: 120px !important;
+    height: 120px !important;
+    margin-top: 80px;
+  }
+
+  .man {
+    width: 150px;
+  }
+
+  .inputs input,
+  .inputs select,
+  .inputs button {
+    width: 100% !important; /* Garante inputs largos */
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .titulo::after {
+    width: 60% !important;
+    left: 50% !important;
+    transform: translateX(-50%) scaleX(0.9) !important;
+  }
+}

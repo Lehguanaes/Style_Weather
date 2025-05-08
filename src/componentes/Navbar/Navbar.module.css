@@ -1,0 +1,143 @@
+
+/* ANIMAÇÃO */
+@keyframes fadeInNavbar {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Container principal */
+.navbar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: var(--preto);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10000;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Logo com animação */
+.logo {
+  margin-left: 8px;
+  height: 100px;
+  cursor: pointer;
+}
+
+/* Container dos botões */
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeInNavbar 0.7s ease forwards;
+  animation-delay: 0.7s;
+}
+
+/* Botão de texto (desktop) */
+.customBtn {
+  font-family: 'Poppins', sans-serif;
+  padding: 0.6rem 1.4rem;
+  border-radius: 10rem;
+  color: var(--branco);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+  transition: all 0.3s ease;
+  border: none;
+  background-color: var(--roxo-clarissimo);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  animation: fadeInNavbar 0.7s ease forwards;
+  animation-delay: 0.9s;
+  opacity: 0;
+}
+
+.customBtn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--roxo-base);
+  transition: all 0.3s ease;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.customBtn:hover::before,
+.customBtn:active::before {
+  width: 100%;
+}
+
+/* Ícones */
+.icon {
+  height: 20px;
+}
+
+.iconOnlyBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c5c2c2;
+}
+
+/* Controle de visibilidade */
+.hideOnMobile {
+  display: inline-block;
+}
+
+.showOnMobile {
+  display: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .customBtn {
+    display: none;
+  }
+
+  .hideOnMobile {
+    display: none !important;
+  }
+
+  .showOnMobile {
+    display: inline-block !important;
+  }
+
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .icon {
+    height: 18px;
+  }
+
+  .logo {
+    height: 70px;
+  }
+
+  .buttons {
+    gap: 0.8rem;
+  }
+}
