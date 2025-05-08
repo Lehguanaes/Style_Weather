@@ -72,7 +72,7 @@ const NavbarLogin = () => {
         {/* Botão para Sobre Nós */}
         <button
           className={styles.iconOnlyBtn}
-          onClick={() => { navigate('/sobre-nos'); window.location.reload(); }}
+          onClick={() =>  navigate('/sobre-nos') }
           title='Sobre nós'
         >
           <img src={helpImg} alt="Sobre nós" className={styles.icon} />
