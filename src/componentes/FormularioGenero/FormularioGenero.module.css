@@ -1,3 +1,4 @@
+/* Container principal */
 .container {
   display: flex;
   flex-direction: column;
@@ -5,6 +6,7 @@
   padding: 20px;
 }
 
+/* Fundo centralizado */
 .background {
   height: 100vh;
   display: flex;
@@ -13,6 +15,7 @@
   font-family: 'Winky Rough', sans-serif;
 }
 
+/* Card de cadastro */
 .cardCadastro {
   position: relative;
   z-index: 1;
@@ -24,12 +27,14 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* Título */
 h2 {
   margin-bottom: 30px;
   font-size: 30px;
   font-family: 'Winky Rough', sans-serif;
 }
 
+/* Container das opções */
 .opcoesContainer {
   display: flex;
   gap: 20px;
@@ -38,9 +43,10 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* Cada opção */
 .opcao {
   display: flex;
-  flex-direction: column-reverse; /* Texto em cima, ícone embaixo */
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
   padding: 15px 20px;
@@ -51,12 +57,13 @@ h2 {
   height: 200px;
   transition: all 0.3s ease;
   text-align: center;
-  background-color: white;
+  background-color: var(--branco);
+  box-shadow: 0 4px 8px var(--sombra-leve);
 }
 
 .opcao:hover {
   transform: scale(1.05);
-  box-shadow: 0 3px 12px var(--roxo-claro);
+  box-shadow: 0 8px 16px var(--sombra-hover);
 }
 
 .opcao.selecionado {
@@ -64,6 +71,7 @@ h2 {
   background-color: #f0e6ff;
 }
 
+/* Ícone dentro do card */
 .icone {
   width: 120px;
   height: 120px;
@@ -71,6 +79,15 @@ h2 {
   margin-top: 10px;
 }
 
+/* Texto da opção */
+.opcao span {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--preto);
+  word-wrap: break-word;
+}
+
+/* Botão de cadastro */
 .botaoCadastrar {
   width: 60%;
   padding: 12px;
@@ -86,13 +103,13 @@ h2 {
 }
 
 .botaoCadastrar:hover {
-  background: #333;
+  background: #222;
 }
 
-/* Responsivo */
+/* Responsividade */
 @media (max-width: 768px) {
   .cardCadastro {
-    width: 70%;
+    width: 90%;
     padding: 20px;
   }
 
@@ -106,5 +123,22 @@ h2 {
 
   .opcao {
     width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .opcao {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .icone {
+    width: 100px;
+    height: 100px;
+  }
+
+  h2 {
+    font-size: 22px;
   }
 }
