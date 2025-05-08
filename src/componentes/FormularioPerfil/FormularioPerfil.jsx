@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+limport React, { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { SweetAlert } from "../SweetAlert"; 
@@ -83,7 +83,7 @@ const FormularioPerfil = () => {
       // Se houver alterações, realizar a atualização
       if (Object.keys(updatedData).length > 0) {
         await updateDoc(docRef, updatedData);
-        SweetAlert.success("Perfil atualizado com sucesso!"); 
+        SweetAlert.successPerfil("Perfil atualizado com sucesso!"); 
       } else {
         SweetAlert.error("Nenhuma alteração foi feita.");
       }
