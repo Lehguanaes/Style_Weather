@@ -108,11 +108,59 @@ Oferecemos uma aplicação web que é capaz de sugerir looks personalizados, com
 
 ## 📁 Como executar o projeto localmente?
 
-1. **Clone o repositório:**
+## 1. Clone o repositório
 
 ```bash
-git clone https://github.com/Lehguanaes/Style_Weather.git
+git clone https://github.com/Amanda093/poupa_mais
+cd poupa_mais
 ```
+
+## 2. Instale as dependências
+
+```bash
+npm install
+```
+
+## 3. Configure o arquivo `.env`
+
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
+
+```env
+# OpenWeather API
+VITE_OPENWEATHER_API_KEY=
+VITE_OPENWEATHER_API_URL=
+VITE_OPENWEATHER_ICON_URL=
+
+# Firebase Config
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+VITE_FIREBASE_MEASUREMENT_ID=
+
+# VLibras Config
+VITE_VLIBRAS_SCRIPT_URL=
+VITE_VLIBRAS_WIDGET_URL=
+
+## 4. Após a instalação, execute um dos comandos a seguir para abrir o projeto:
+
+```bash
+npm run dev
+# ou
+yarn dev
+# ou
+pnpm dev
+# ou
+bun dev
+```
+
+## 5. Acesse no navegador
+
+Abra o endereço disponibilizado para visualizar o projeto.
+
+
 ## ✨ Desenvolvedoras do Projeto
 
 <table align="center">
