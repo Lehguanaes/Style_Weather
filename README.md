@@ -108,11 +108,13 @@ Oferecemos uma aplicação web que é capaz de sugerir looks personalizados, com
 
 ## 📁 Como executar o projeto localmente?
 
+# 📁 Como executar o projeto localmente
+
 ## 1. Clone o repositório
 
 ```bash
-git clone https://github.com/Amanda093/poupa_mais
-cd poupa_mais
+git clone https://github.com/Lehguanaes/Style_Weather
+cd Style_Weather
 ```
 
 ## 2. Instale as dependências
@@ -121,7 +123,16 @@ cd poupa_mais
 npm install
 ```
 
-## 3. Configure o arquivo `.env`
+## 3. Instale as seguintes bibliotecas
+
+```bash
+## Instale as seguintes bibliotecas:
+npm install react-icons
+npm install sweetalert2
+npm install --save @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
+```
+
+## 4. Configure o arquivo `.env`
 
 Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
 
@@ -141,10 +152,11 @@ VITE_FIREBASE_APP_ID=
 VITE_FIREBASE_MEASUREMENT_ID=
 
 # VLibras Config
-VITE_VLIBRAS_SCRIPT_URL=
-VITE_VLIBRAS_WIDGET_URL=
+VITE_VLIBRAS_SCRIPT_URL=https://vlibras.gov.br/app/vlibras-plugin.js
+VITE_VLIBRAS_WIDGET_URL=https://vlibras.gov.br/app 
+```
 
-## 4. Após a instalação, execute um dos comandos a seguir para abrir o projeto:
+## 5. Após a instalação, execute um dos comandos a seguir para abrir o projeto:
 
 ```bash
 npm run dev
@@ -156,9 +168,11 @@ pnpm dev
 bun dev
 ```
 
-## 5. Acesse no navegador
+## 6. Acesse no navegador
 
 Abra o endereço disponibilizado para visualizar o projeto.
+
+
 
 
 ## ✨ Desenvolvedoras do Projeto
