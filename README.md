@@ -152,8 +152,8 @@ VITE_FIREBASE_APP_ID=
 VITE_FIREBASE_MEASUREMENT_ID=
 
 # VLibras Config
-VITE_VLIBRAS_SCRIPT_URL=https://vlibras.gov.br/app/vlibras-plugin.js
-VITE_VLIBRAS_WIDGET_URL=https://vlibras.gov.br/app 
+VITE_VLIBRAS_SCRIPT_URL=
+VITE_VLIBRAS_WIDGET_URL=
 ```
 
 ## 5. Após a instalação, execute um dos comandos a seguir para abrir o projeto:
