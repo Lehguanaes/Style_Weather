@@ -5,7 +5,7 @@
 <div align="center">
   <a href="https://styleweather.vercel.app/" target="_blank"><img src="https://img.shields.io/badge/Aplicação Web-FFFFFF?style=for-the-badge&logo=Vercel&logoColor=000000"></a> 
   <a href="https://www.canva.com/design/DAGmzn56phI/RSoibSAqQ5mAJAcAIM17Cw/view?utm_content=DAGmzn56phI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf519faea9b" target="_blank"><img src="https://img.shields.io/badge/Apresentação PDF-FFFFFF?&style=for-the-badge&logo=Canva&logoColor=000000"></a>
-  <a href="https://www.canva.com/design/DAGV6NnPNY0/8DY3YfCoRzvQSBId8KBvaQ/view?utm_content=DAGV6NnPNY0&utm_campaign=designshare&utm_medium=link&utm_source=editor" target="_blank"><img src="https://img.shields.io/badge/Apresentação Vídeo-FFFFFF?style=for-the-badge&logo=Google-chrome&logoColor=000000"></a>
+  <a href="https://drive.google.com/drive/folders/1vSxr3mD0D1FY6K8sF8JcZ4OYPmtjqZp7?usp=drive_link" target="_blank"><img src="https://img.shields.io/badge/Apresentação Vídeo-FFFFFF?style=for-the-badge&logo=Google-chrome&logoColor=000000"></a>
 </div>
 
 ---
@@ -107,8 +107,6 @@ Oferecemos uma aplicação web que é capaz de sugerir looks personalizados, com
 ---
 
 ## 📁 Como executar o projeto localmente?
-
-# 📁 Como executar o projeto localmente
 
 ## 1. Clone o repositório
 
