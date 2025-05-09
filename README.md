@@ -2,6 +2,12 @@
   <img width="400px" src="https://github.com/user-attachments/assets/2e27a6a5-ae39-49f8-9878-59502284f87b"/>
 </p>
 
+<div align="center">
+  <a href="https://styleweather.vercel.app/" target="_blank"><img src="https://img.shields.io/badge/Aplicação Web-FFFFFF?style=for-the-badge&logo=Vercel&logoColor=000000"></a> 
+ <a href="https://www.canva.com/design/DAGmzn56phI/RSoibSAqQ5mAJAcAIM17Cw/view?utm_content=DAGmzn56phI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf519faea9b" target="_blank"><img src="https://img.shields.io/badge/Apresentação PDF-FFFFFF?&style=for-the-badge&logo=Canva&logoColor=000000"></a>
+ <a href="https://www.canva.com/design/DAGV6NnPNY0/8DY3YfCoRzvQSBId8KBvaQ/view?utm_content=DAGV6NnPNY0&utm_campaign=designshare&utm_medium=link&utm_source=editor" target="_blank"><img src="https://img.shields.io/badge/Apresentação Vídeo-FFFFFF?style=for-the-badge&logo=Google-chrome&logoColor=000000"></a>
+</div>
+
 
 ## ✨ Objetivo da Startup
 
@@ -22,6 +28,10 @@ Oferecemos uma aplicação web que é capaz de sugerir looks personalizados, com
 - o clima atual e previsto de uma cidade selecionada;
 
 - o lugar escolhido pelo usuário (academia, praia, restaurante, etc).
+
+Acesse a nossa aplicação!
+
+<a href="https://styleweather.vercel.app/">styleweather.vercel.app/</a>
 
 ## ⚛️ Tecnologias Utilizadas no Projeto
 
