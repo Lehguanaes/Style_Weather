@@ -1,0 +1,38 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API do Meu Projeto",
+      "description": "API para integração com OpenWeather, VLibras e Firebase",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:5000/api"
+      }
+    ],
+    "paths": {
+      "/clima": {
+        "get": {
+          "summary": "Retorna dados climáticos",
+          "responses": {
+            "200": {
+              "description": "Dados climáticos obtidos com sucesso",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "cidade": { "type": "string" },
+                      "temperatura": { "type": "number" },
+                      "descricao": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

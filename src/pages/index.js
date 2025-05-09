@@ -5,4 +5,6 @@ export * from './EscolherLook'
 export * from './EditarPerfil';
 export * from './Login';
 export * from './SobreNos';
+export * from './Genero';
+export * from './Documentacao';
 

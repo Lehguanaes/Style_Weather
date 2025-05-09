@@ -10,6 +10,7 @@ import { Login } from './pages/Login/Login';
 import { EditarPerfil } from './pages/EditarPerfil/EditarPerfil';
 import { SobreNos } from './pages/SobreNos/SobreNos';
 import {Error404} from './componentes/Error404'; // Importando o componente de erro 404
+import { Documentacao } from './pages/Documentacao'; // Importa o novo componente
 import './global.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/genero" element={<Genero />} />
             <Route path="/editar-perfil" element={<EditarPerfil />} />
             <Route path="/sobre-nos" element={<SobreNos />} />
+            <Route path="/documentacao" element={<Documentacao />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
         </LayoutPrincipal>
