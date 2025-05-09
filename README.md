@@ -128,6 +128,12 @@ npm install
 npm install react-icons
 npm install sweetalert2
 npm install --save @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
+npm install react@18 react-dom@18
+npm install swagger-ui-react --legacy-peer-deps
+```
+Para gerar uma versão final otimizada da sua aplicação, coloque o seguinte comando:
+```bash
+npm run build
 ```
 
 ## 4. Configure o arquivo `.env`
