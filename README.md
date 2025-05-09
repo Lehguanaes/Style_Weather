@@ -89,6 +89,10 @@ Torna o sistema mais inclusivo para usuários com deficiência auditiva.
 
 Integração feita com o widget oficial, que pode ser inserido diretamente no HTML ou via componente React.
 
+<h2> ▲ Vercel | plataforma de deploy </h2>
+
+Plataforma de deploy e hospedagem contínua utilizada para publicar a aplicação, com suporte para projetos Vite + React, gerenciamento de variáveis de ambiente e integração com GitHub.
+
 ##
 
 ## ✨ Desenvolvedoras do Projeto
