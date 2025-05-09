@@ -33,7 +33,7 @@ const CardClima = () => {
     } = dadosClima;
 
     const clima = weather[0];
-    const urlIcone = `https://openweathermap.org/img/wn/${clima.icon}@2x.png`;
+    const urlIcone = `${import.meta.env.VITE_OPENWEATHER_ICON_URL}${clima.icon}@2x.png`;
 
     if (cidadeSelecionada && nomeCidade !== cidadeSelecionada) {
         return (

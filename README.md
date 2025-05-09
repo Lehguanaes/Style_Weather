@@ -33,13 +33,17 @@ Acesse a nossa aplicação!
 
 <a href="https://styleweather.vercel.app/">styleweather.vercel.app/</a>
 
-## ⚛️ Tecnologias Utilizadas no Projeto
+<div align="center">
 
-<h2>React.js</h2>
+# 🔧 Tecnologias Utilizadas no Projeto
+
+</div>
+
+<h2> ⚛ React.js</h2>
 
 Biblioteca JavaScript para construção da interface de forma componente reutilizável.
 
-Organiza a interface como componentes (Navbar, CardRoupas, FormularioLogin, etc.).
+Permitiu Organizar a interface em componentes (Navbar, CardRoupas, FormularioLogin, etc.).
 
 Utiliza JSX (JavaScript + HTML) para criar a UI de forma declarativa.
 
@@ -59,17 +63,34 @@ Estrutura moderna com suporte nativo a ES Modules.
 
 <h2>🎨 CSS Modules </h2>
 
-CSS Modules permitem que você escreva estilos com escopo local por componente.
+CSS Modules permitiu estilos com escopo local por componente.
 
-Evita conflitos de classe (nada de .container global quebrando tudo).
+Evitou conflitos de classe como  ter apenas .container global controlando tudo.
 
-<h2>☁️ APIs e Serviços Externos </h2>
+<h2>🔽 React-select </h2>
+
+React-select é uma biblioteca para React em que criamos componentes de seleção (dropdowns) altamente customizáveis e acessíveis.
+
+<h2>📦 React-icons </h2>
+
+React-icons é uma biblioteca que oferece ícones prontos de diversos pacotes (como Font Awesome, Material Icons, entre outros) que foram utilizados no projeto.
+
+<h2>❗SweetAlert2 </h2>
+O SweetAlert2 é uma biblioteca JavaScript que foi usada para exibir alertas personalizados e estilizados, substituindo os alertas nativos do navegador (alert(), confirm(), etc.).
 
 <h2>📍 OpenWeather API</h2>
 
 Fornece dados meteorológicos em tempo real para a aplicação.
 
 Disponibilizou dados que foram tratados e exibem a previsão do tempo de uma cidade selecionada na interface.
+
+<h2>🧏 VLibras API</h2>
+
+Ferramenta de acessibilidade que traduz automaticamente conteúdos escritos para Libras (Língua Brasileira de Sinais).
+
+Torna o sistema mais inclusivo para usuários com deficiência auditiva.
+
+Integração feita com o widget oficial, que pode ser inserido diretamente no HTML ou via componente React.
 
 <h2>🔥 Firebase</h2>
 
@@ -81,13 +102,9 @@ Autenticação de usuários (login com e-mail e senha).
 
 Integração simples com o React por meio de SDKs.
 
-<h2>🧏 VLibras API</h2>
+<h2> ▲ Vercel | plataforma de deploy </h2>
 
-Ferramenta de acessibilidade que traduz automaticamente conteúdos escritos para Libras (Língua Brasileira de Sinais).
-
-Torna o sistema mais inclusivo para usuários com deficiência auditiva.
-
-Integração feita com o widget oficial, que pode ser inserido diretamente no HTML ou via componente React.
+Plataforma de deploy e hospedagem contínua utilizada para publicar a aplicação, com suporte para projetos Vite + React, gerenciamento de variáveis de ambiente e integração com GitHub.
 
 ##
 
@@ -145,7 +162,6 @@ Integração feita com o widget oficial, que pode ser inserido diretamente no HT
     </td>
   </tr>
 </table>
-
 
 <h3 align="center">
  "𝑽𝒊𝒔𝒕𝒂-𝒔𝒆 𝒄𝒐𝒎 𝒐 𝒕𝒆𝒎𝒑𝒐 𝒂 𝒔𝒆𝒖 𝒇𝒂𝒗𝒐𝒓!"
