@@ -140,7 +140,7 @@ const FormularioPerfil = () => {
             onChange={handleInputChange}
           />
 
-          <label className={style.label}>Gênero:</label>
+          <label className={style.label}>Estilo de Roupa:</label>
           <select
             name="tipoLook"
             value={userData.tipoLook}

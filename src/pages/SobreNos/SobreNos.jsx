@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'; // Importa o Link do react-router-dom
 import style from './SobreNos.module.css'; // Importa o CSS como módulo
-import logoImg from '../../assets/logo.png'; // Importe a imagem do logo
+import logoImg from '../../assets/logo_sobre_nos.png'; // Importe a imagem do logo
 import logoResponsiva from '../../assets/logo_responsiva.png';
 import { AppContext } from '../../context/AppContext'; // Importa o contexto global
 

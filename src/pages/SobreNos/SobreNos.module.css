@@ -46,7 +46,7 @@
 }
 
 .logoImg {
-  max-width: 100%;
+  max-width: 75%;
   height: auto;
   margin-bottom: 1.5rem;
   border-radius: 12px;
@@ -90,7 +90,7 @@
 .leftPanel {
   background-color: var(--preto);
   color: var(--branco);
-  width: 40%;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,7 +173,7 @@
 }
 
 /* RESPONSIVO */
-@media (max-width: 768px) {
+@media (max-width: 988px) {
   .container {
     flex-direction: column;
     background-color: var(--branco);
@@ -196,7 +196,7 @@
 
   .responsiveLogo {
     display: block;
-    max-width: 300px;
+    max-width: 270px;
     height: auto;
     margin-bottom: 0rem;
     border-radius: 0;

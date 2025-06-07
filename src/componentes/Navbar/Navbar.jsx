@@ -25,17 +25,17 @@ const Navbar = () => {
       <div className={styles.buttons}>
         {/* Botão com texto (desktop) */}
         <button
-          onClick={() => navigate('/cadastrar')}
+          onClick={() => navigate('/login')}
           className={`${styles.customBtn} ${styles.hideOnMobile}`}
         >
-          Cadastre-se
+          Login
         </button>
 
         {/* Ícone (mobile) */}
         <button
-          onClick={() => navigate('/cadastrar')}
+          onClick={() => navigate('/login')}
           className={`${styles.iconOnlyBtn} ${styles.showOnMobile}`}
-          title="Cadastre-se"
+          title="Login-se"
         >
           <UserPlus size={20} />
         </button>

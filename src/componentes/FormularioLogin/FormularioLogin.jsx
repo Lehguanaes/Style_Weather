@@ -8,6 +8,7 @@ import { verificarSenha } from '../../services/Auth'; // Função para verificar
 import { SweetAlert } from '../SweetAlert'; // Importa o componente de alerta
 import { AppContext } from "../../context/AppContext"; // Importa o contexto global
 import { Eye, EyeOff } from 'react-feather'; // Ícones para mostrar/ocultar senha
+import { Link } from "react-router-dom";
 
 const FormularioLogin = () => {
   const [email, setEmail] = useState("");
@@ -109,9 +110,12 @@ const FormularioLogin = () => {
               </div>
             </div>
           </div>
+          <p>Não possui cadastro? <Link to="/cadastrar">Cadastre-se!</Link></p>
 
           <button type="submit">Entrar</button>
           {mensagem && <p className={style.mensagem}>{mensagem}</p>}
+
+
         </form>
       </div>
     </div>
