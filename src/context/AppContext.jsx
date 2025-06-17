@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
-import logoImg from '../assets/logo.png';
-import usuario from '../assets/usuario.png';
+import logoImg from '../assets/logo/logo.png';
+import usuario from '../assets/icones/usuario.png';
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";

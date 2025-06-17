@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import style from './FormularioCadastrar.module.css';
-import manequim from '../../assets/manequim.png';
+import manequim from '../../assets/icones/manequim.png';
 import { SweetAlert } from '../SweetAlert';
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // ÍCONES ADICIONADOS
 

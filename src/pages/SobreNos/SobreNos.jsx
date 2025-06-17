@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import style from './SobreNos.module.css';
-import logoImg from '../../assets/logo_sobre_nos.png';
-import logoResponsiva from '../../assets/logo_responsiva.png';
+import logoImg from '../../assets/logo/logo_sobre_nos.png';
+import logoResponsiva from '../../assets/logo/logo_responsiva.png';
 import jovanaImg from '../../assets/desenvolvedoras/dev_jovana.jpg';
 import karinneImg from '../../assets/desenvolvedoras/dev_karinne.jpg';
 import leticiaImg from '../../assets/desenvolvedoras/dev_leticia.jpg';

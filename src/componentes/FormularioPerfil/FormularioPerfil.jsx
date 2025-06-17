@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { SweetAlert } from "../SweetAlert"; 
 import style from "./FormularioPerfil.module.css";
-import usuario from "../../assets/usuario.png"; // Imagem padrão de usuário
+import usuario from "../../assets/icones/usuario.png"; // Imagem padrão de usuário
 
 const FormularioPerfil = () => {
   const [userData, setUserData] = useState({

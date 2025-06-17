@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import style from './FormularioLogin.module.css';
-import usuario from '../../assets/usuario.png';
+import usuario from '../../assets/icones/usuario.png';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { verificarSenha } from '../../services/Auth'; // Função para verificar senha

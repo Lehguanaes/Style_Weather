@@ -46,9 +46,8 @@
 }
 
 .logoImg {
-  max-width: 75%;
+  max-width: 80%;
   height: auto;
-  margin-bottom: 1.5rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: float 4s ease-in-out infinite;
@@ -179,6 +178,7 @@
   font-size: 1.5rem;
   margin-bottom: 17px;
 }
+
 .fotoGrupo {
   display: flex;
   flex-direction: column;
@@ -264,7 +264,7 @@
 
   .responsiveLogo {
     display: block;
-    max-width: 270px;
+    max-width: 370px;
     height: auto;
     margin-bottom: 0rem;
     border-radius: 0;
