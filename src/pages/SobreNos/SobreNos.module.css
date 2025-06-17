@@ -4,7 +4,7 @@
   animation: fadeSlide 1s ease-in-out;
   transition: all 0.3s ease-in-out;
   flex-direction: row;
-}
+} 
 
 .titulo {
   font-family: 'Poppins', sans-serif;
@@ -66,10 +66,6 @@
 .responsiveLogo {
   display: none;
   animation: float 4s ease-in-out infinite;
-}
-
-.signup {
-  margin-bottom: 100px;
 }
 
 @keyframes float {
@@ -170,6 +166,78 @@
 .signupButton:hover {
   background-color: var(--cinza-claro);
   transform: scale(1.05);
+}
+
+.fundadores {
+  margin-top: 1.7rem;
+}
+.subtitulo {
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  display: inline-block;
+  color: var(--roxo-base);
+  font-size: 1.5rem;
+  margin-bottom: 17px;
+}
+.fotoGrupo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.fotoGrupo img {
+  max-width: 360px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.fotoGrupo p {
+  font-size: 1rem;
+  color: var(--cinza-texto);
+  max-width: 600px;
+} 
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.card {
+  text-align: center;
+  background-color: var(--cinza-fundo, #f5f5f5);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  max-width: 190px;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.card h4 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 1.1rem;
+  color: var(--roxo-base);
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--cinza-texto);
 }
 
 /* RESPONSIVO */
