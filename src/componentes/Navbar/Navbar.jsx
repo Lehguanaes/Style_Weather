@@ -1,10 +1,11 @@
 import { UserPlus } from 'lucide-react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import helpImg from '../../assets/help.png';
 import { useAppContext } from '../../hooks/useAppContext';
 import styles from './Navbar.module.css';
-import homeIcon from "../../assets/inicial.png";
+import homeIcon from "../../assets/icones/inicial.png";
+import loginIcon from '../../assets/icones/login.png'; 
+import helpImg from '../../assets/icones/help.png';
 
 const Navbar = () => {
   const { logo } = useAppContext();
@@ -37,8 +38,9 @@ const Navbar = () => {
           className={`${styles.iconOnlyBtn} ${styles.showOnMobile}`}
           title="Login-se"
         >
-          <UserPlus size={20} />
+          <img src={loginIcon} alt="Login" className={styles.icon} />
         </button>
+        {/* Login (mobile) */}
 
         {/* Início */}
         <button

@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { X } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAppContext } from "../../hooks/useAppContext";
-import helpImg from "../../assets/help.png";
-import usuario from "../../assets/usuario.png";
-import homeIcon from "../../assets/inicial.png";
-import { X } from 'react-feather';
 import styles from "./NavbarLogin.module.css";
+import homeIcon from "../../assets/icones/inicial.png";
+import helpImg from '../../assets/icones/help.png';
 
 const NavbarLogin = () => {
   const {
