@@ -182,21 +182,17 @@
 
 /* Botão do formulário */
 .inputs button {
-  width: 90%;
-  padding: 1rem;
-  background: var(--degrade-roxo);
+  width: 85%;
+  padding: 12px;
   color: var(--branco);
+  background: linear-gradient(to right, var(--roxo-escuro), var(--roxo-base));
+
   border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 20px;
+  font-size: 16px;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 5px 20px rgba(155, 124, 187, 0.3);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+  font-family: 'Winky Rough', sans-serif;
+  transition: all 0.3s ease;
 }
 
 .passwordWrapper {
