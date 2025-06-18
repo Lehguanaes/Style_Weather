@@ -8,13 +8,38 @@ import usuario from "../../assets/icones/usuario.png"; // Imagem padrão de usu�
 const FormularioPerfil = () => {
   const [userData, setUserData] = useState({
     nome: "",
-    email: "",
-    tipoLook: "",
-    profileImage: "",
-    originalNome: "",
-    originalTipoLook: "",
-    originalProfileImage: ""
+  email: "",
+  tipoLook: "",
+  profileImage: "",
+  cidade: "", // <-- ADICIONADO
+  originalNome: "",
+  originalTipoLook: "",
+  originalProfileImage: "",
+  originalCidade: "" //
   });
+
+  const cidadesIniciais = [
+  { label: "Aracaju", value: "Aracaju" },
+  { label: "Belo Horizonte", value: "Belo Horizonte" },
+  { label: "Belém", value: "Belém" },
+  { label: "Brasília", value: "Brasília" },
+  { label: "Campinas", value: "Campinas" },
+  { label: "Curitiba", value: "Curitiba" },
+  { label: "Cuiabá", value: "Cuiabá" },
+  { label: "Fortaleza", value: "Fortaleza" },
+  { label: "Goiânia", value: "Goiânia" },
+  { label: "João Pessoa", value: "João Pessoa" },
+  { label: "Maceió", value: "Maceió" },
+  { label: "Manaus", value: "Manaus" },
+  { label: "Natal", value: "Natal" },
+  { label: "Porto Alegre", value: "Porto Alegre" },
+  { label: "Recife", value: "Recife" },
+  { label: "Rio de Janeiro", value: "Rio de Janeiro" },
+  { label: "São Luís", value: "São Luís" },
+  { label: "São Paulo", value: "São Paulo" },
+  { label: "Teresina", value: "Teresina" }
+];
+
 
   const [profileImage, setProfileImage] = useState('');
   const auth = getAuth();
@@ -30,13 +55,15 @@ const FormularioPerfil = () => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
           setUserData({
-            nome: userData.nome,
-            email: user.email,
-            tipoLook: userData.tipoLook || "",
-            profileImage: userData.profileImage || "",
-            originalNome: userData.nome,
-            originalTipoLook: userData.tipoLook || "",
-            originalProfileImage: userData.profileImage || ""
+           nome: userData.nome,
+  email: user.email,
+  tipoLook: userData.tipoLook || "",
+  cidade: userData.cidade || "", // <-- ADICIONADO
+  profileImage: userData.profileImage || "",
+  originalNome: userData.nome,
+  originalTipoLook: userData.tipoLook || "",
+  originalProfileImage: userData.profileImage || "",
+  originalCidade: userData.cidade || ""
           });
           setProfileImage(userData.profileImage || "");
         }
@@ -76,6 +103,10 @@ const FormularioPerfil = () => {
       if (userData.nome !== userData.originalNome) updatedData.nome = userData.nome;
       if (userData.tipoLook !== userData.originalTipoLook) updatedData.tipoLook = userData.tipoLook;
      
+      if (userData.cidade !== userData.originalCidade) {
+  updatedData.cidade = userData.cidade;
+}
+
       // Verifica se a imagem foi alterada, caso contrário, usa a imagem padrão
       if (profileImage !== userData.originalProfileImage) {
         updatedData.profileImage = profileImage || {usuario};
@@ -139,6 +170,28 @@ const FormularioPerfil = () => {
             value={userData.nome}
             onChange={handleInputChange}
           />
+
+<label className={style.label}>Cidade:</label>
+<input
+  list="lista-cidades"
+  name="cidade"
+  value={userData.cidade}
+  onChange={handleInputChange}
+  className={style.inputsPerfil}
+/>
+
+<datalist id="lista-cidades">
+  <option value="São Paulo" />
+  <option value="Rio de Janeiro" />
+  <option value="Belo Horizonte" />
+  <option value="Porto Alegre" />
+  <option value="Curitiba" />
+  <option value="Salvador" />
+  <option value="Recife" />
+  <option value="Fortaleza" />
+  <option value="Manaus" />
+  <option value="Brasília" />
+</datalist>
 
           <label className={style.label}>Estilo de Roupa:</label>
           <select

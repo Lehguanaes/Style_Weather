@@ -1,29 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import style from './FormularioLogin.module.css';
 import usuario from '../../assets/icones/usuario.png';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
-import { verificarSenha } from '../../services/Auth'; // Função para verificar senha
-import { SweetAlert } from '../SweetAlert'; // Importa o componente de alerta
-import { AppContext } from "../../context/AppContext"; // Importa o contexto global
-import { Eye, EyeOff } from 'react-feather'; // Ícones para mostrar/ocultar senha
+import { verificarSenha } from '../../services/Auth';
+import { SweetAlert } from '../SweetAlert';
+import { AppContext } from "../../context/AppContext";
+import { Eye, EyeOff } from 'react-feather';
 import { Link } from "react-router-dom";
 
 const FormularioLogin = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState("");
-  const [senhaVisivel, setSenhaVisivel] = useState(false); // Estado para controlar a visibilidade da senha
-
+  const [senhaVisivel, setSenhaVisivel] = useState(false);
+  const [estaLogando, setEstaLogando] = useState(false);
+  const { setUserData } = useContext(AppContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setEstaLogando(true);
 
-    // Validação de campos
     if (!email || !senha) {
       setMensagem("Por favor, preencha todos os campos.");
+      setEstaLogando(false);
       return;
     }
 
@@ -31,46 +33,43 @@ const FormularioLogin = () => {
     const db = getFirestore();
 
     try {
-      // Autentica o usuário no Firebase Authentication
       const userCredential = await signInWithEmailAndPassword(auth, email, senha);
       const user = userCredential.user;
 
-      // Salva o userId no localStorage
       localStorage.setItem("userId", user.uid);
 
-      // Recupera os dados do Firestore
       const docRef = doc(db, "usuarios", user.uid);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
         const dadosUsuario = docSnap.data();
-        console.log("Dados do Firestore:", dadosUsuario);
-
-        // Verifica a senha criptografada
         const senhaCorreta = await verificarSenha(senha, dadosUsuario.senha);
+
         if (senhaCorreta) {
-          setMensagem("Login bem-sucedido!");
-          SweetAlert.successPerfil("Login bem-sucedido!"); // Aumenta a duração para 5 segundos
+    setUserData(dadosUsuario);
+await SweetAlert.successPerfil("Login bem-sucedido!");
+
+setTimeout(() => {
+  navigate("/editar-perfil", {
+    state: { fromLogin: true },
+    replace: true
+  });
+}, 500); 
         } else {
-          setMensagem("Senha incorreta.");
-          SweetAlert.error("Senha incorreta.", { duration: 5000 }); // 5 segundos para o erro
+          await SweetAlert.error("Senha incorreta.", { duration: 5000 });
         }
       } else {
-        setMensagem("Usuário não encontrado no banco de dados.");
-        SweetAlert.error("Usuário não encontrado no banco de dados.", { duration: 5000 }); // 5 segundos para o erro
+        await SweetAlert.error("Usuário não encontrado.", { duration: 5000 });
       }
     } catch (error) {
-      console.error("Erro no login:", error.message);
-      setMensagem("Email ou senha inválidos.");
-      SweetAlert.error("Email ou senha inválidos.", { duration: 5000 }); // 5 segundos para o erro
+      await SweetAlert.error("Email ou senha inválidos.", { duration: 5000 });
+    } finally {
+      setEstaLogando(false);
+      setEmail("");
+      setSenha("");
     }
-
-    // Limpa os campos de email e senha
-    setEmail("");
-    setSenha("");
   };
 
-  // Função para alternar a visibilidade da senha
   const togglePasswordVisibility = () => setSenhaVisivel(!senhaVisivel);
 
   return (
@@ -88,7 +87,6 @@ const FormularioLogin = () => {
               type="email"
               value={email}
               placeholder="exemplo@dominio.com"
-
               onChange={(e) => setEmail(e.target.value)}
               required
             />
@@ -98,10 +96,9 @@ const FormularioLogin = () => {
             <label>Senha:</label>
             <div className={style.passwordWrapper}>
               <input
-                type={senhaVisivel ? "text" : "password"} // Muda o tipo de input dependendo do estado
+                type={senhaVisivel ? "text" : "password"}
                 value={senha}
                 placeholder="Insira a sua senha"
-
                 onChange={(e) => setSenha(e.target.value)}
                 required
               />
@@ -114,8 +111,6 @@ const FormularioLogin = () => {
 
           <button type="submit">Entrar</button>
           {mensagem && <p className={style.mensagem}>{mensagem}</p>}
-
-
         </form>
       </div>
     </div>
