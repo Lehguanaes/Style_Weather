@@ -87,7 +87,7 @@ const FormularioGenero = () => {
       });
 
       SweetAlert.success("Cadastro concluído!", { iconColor: "#800080" });
-      navigate("/editar-perfil");
+      navigate("/");
     } catch (error) {
       SweetAlert.error(`Erro: ${error.message}`, { iconColor: "#800080" });
     }

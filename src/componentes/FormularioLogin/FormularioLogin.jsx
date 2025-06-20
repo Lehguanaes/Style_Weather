@@ -50,7 +50,7 @@ const FormularioLogin = () => {
 await SweetAlert.successPerfil("Login bem-sucedido!");
 
 setTimeout(() => {
-  navigate("/editar-perfil", {
+  navigate("/", {
     state: { fromLogin: true },
     replace: true
   });

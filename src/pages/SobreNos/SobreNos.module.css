@@ -82,6 +82,10 @@
   color: var(--cinza-claro);
 }
 
+.emailLabel{
+    color: var(--preto);
+}
+
 .leftPanel {
   background-color: var(--preto);
   color: var(--branco);
@@ -112,6 +116,30 @@
   font-size: 0.9rem;
   margin-bottom: 2rem;
 }
+
+
+
+
+.contact p {
+  margin: 8px 0;
+}
+
+.emailLabel {
+  font-weight: bold;
+  color: #333;
+}
+
+.emailLink {
+  color: #8b5cf6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.emailLink:hover {
+  color: #6d28d9;
+  text-decoration: underline;
+}
+
 
 .nav a {
   text-decoration: none;
