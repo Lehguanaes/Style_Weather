@@ -13,6 +13,14 @@ import { AppContext } from '../../context/AppContext';
 function SobreNos() {
   const { usuarioLogado } = useContext(AppContext);
 
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    window.open(
+      'https://mail.google.com/mail/?view=cm&fs=1&to=styleweatherinfo@gmail.com&su=Contato%20Style%20Weather',
+      '_blank'
+    );
+  };
+
   return (
     <div className={style.container}>
       <div className={style.leftPanel}>
@@ -44,8 +52,17 @@ function SobreNos() {
             para garantir que você esteja pronto, elegante e seguro para qualquer ocasião.
           </p>
           <div className={style.contact}>
-            <p><strong>Email:</strong> info@styleweather.com</p>
-            <p><strong>Telefone:</strong> (11) 90000-0000</p>
+        <p>
+          <span className={style.emailLabel}>Email: </span>
+          <a 
+            href="#"
+            onClick={handleEmailClick}
+            className={style.emailLink}
+          >
+            styleweatherinfo@gmail.com
+          </a>
+        </p>
+           
           </div>
           <div className={style.signup}>
             {usuarioLogado ? (

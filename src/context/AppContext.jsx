@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect } from 'react';
 import logoImg from '../assets/logo/logo.png';
 import usuario from '../assets/icones/usuario.png';
-
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { useLocation, useNavigate } from "react-router-dom"; 
 
 export const AppContext = createContext();
 
@@ -13,54 +13,59 @@ export const AppProvider = ({ children }) => {
   const [cidadeSelecionada, setCidadeSelecionada] = useState("");
   const [lugarSelecionado, setLugarSelecionado] = useState("");
   const [dadosClima, setDadosClima] = useState(null);
-  const [usuarioLogado, setUsuarioLogado] = useState(false); // Estado para rastrear autenticação
-  const [profileImage, setProfileImage] = useState(logoImg); // Estado para a foto de perfil
+  const [usuarioLogado, setUsuarioLogado] = useState(false);
+  const [profileImage, setProfileImage] = useState(logoImg);
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true); // Estado para controle de carregamento
 
   const auth = getAuth();
   const db = getFirestore();
 
   const alternarMenu = () => setMenuAberto(prev => !prev);
 
-  // Função para resetar o contexto do app
   const resetAppContext = () => {
-    setUsuarioLogado(false); // Resetando o estado de login
+    setUsuarioLogado(false);
     setTipoLook("");
     setCidadeSelecionada("");
     setLugarSelecionado("");
     setDadosClima(null);
-    setProfileImage(logoImg); // Reseta para a imagem padrão
+    setProfileImage(logoImg);
+    setUserData(null);
   };
 
-  // Carrega os dados do usuário do Firebase
   useEffect(() => {
     const carregarDadosUsuario = async (user) => {
-      if (user) {
-        try {
+      setLoading(true);
+      try {
+        if (user) {
           const docRef = doc(db, "usuarios", user.uid);
           const docSnap = await getDoc(docRef);
 
           if (docSnap.exists()) {
             const userData = docSnap.data();
-            setTipoLook(userData.tipoLook || ""); // Define o tipoLook do Firestore
-            setProfileImage(userData.profileImage || usuario); // Define a imagem de perfil ou a padrão
-            setUsuarioLogado(true); // Define como logado
-          } else {
-            console.error("Documento do usuário não encontrado no Firestore.");
+            setUserData(userData);
+            setTipoLook(userData.tipoLook || "");
+            
+            // Atualiza a cidade apenas se não estiver na página de login
+            if (!window.location.pathname.includes('/login')) {
+              setCidadeSelecionada(userData.cidade || "");
+            }
+            
+            setProfileImage(userData.profileImage || usuario);
+            setUsuarioLogado(true);
           }
-        } catch (error) {
-          console.error("Erro ao carregar dados do usuário:", error.message);
+        } else {
+          resetAppContext();
         }
-      } else {
-        resetAppContext(); // Reseta os dados quando o usuário não está logado
+      } catch (error) {
+        console.error("Erro ao carregar dados:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    // Observa mudanças no estado de autenticação
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      carregarDadosUsuario(user);
-    });
-
-    return () => unsubscribe(); // Limpa o observador ao desmontar o componente
+    const unsubscribe = onAuthStateChanged(auth, carregarDadosUsuario);
+    return () => unsubscribe();
   }, [auth, db]);
 
   return (
@@ -78,13 +83,16 @@ export const AppProvider = ({ children }) => {
         dadosClima,
         setDadosClima,
         usuarioLogado,
-        setUsuarioLogado, // A função setUsuarioLogado agora está disponível no contexto
+        setUsuarioLogado,
         profileImage,
         setProfileImage,
-        resetAppContext, // Agora o reset está disponível no contexto
+        resetAppContext,
+        userData,
+        setUserData,
+        loading
       }}
     >
-      {children}
+      {!loading && children}
     </AppContext.Provider>
   );
 };
