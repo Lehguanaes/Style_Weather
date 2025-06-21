@@ -1,18 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 :root {
-    --cinza: #EBEBEC;
-    --cinza-claro: #555;
-    --cinza-texto: #333;
-    --cinza-hover: #f9f3fc;
-    --cinza-borda: #e0e0e0;
-    --branco: #FFFFFF;
-    --preto: ##1a1919;
-    --roxo-base: #6e4c97;
-    --roxo-claro: #9b7cbb;
-    --azul-claro: #3498db;
-    --verde: #27ae60;
-    --cinza-escuro: #2c3e50;
-    --cinza-medio: #777;
-    --sombra-hover: rgba(0, 0, 0, 0.1);
+  --cinza: #EBEBEC;
+  --cinza-claro: #555;
+  --cinza-texto: #4a4a4a; /* versão mais recente */
+  --cinza-hover: #f9f3fc;
+  --cinza-borda: rgba(110, 76, 151, 0.15); /* versão mais recente */
+  --cinza-escuro: #2c3e50;
+  --cinza-medio: #777;
+  --branco: #ffffff; /* versão mais recente */
+  --preto: #1a1919; /* corrigido erro de digitação e versão mais recente */
+  --roxo-base: #9b7cbb; /* versão mais recente */
+  --roxo-claro: #a076cb; /* versão mais recente */
+  --roxo-escuro: #2e1647;
+  --azul-claro: #3498db;
+  --verde: #27ae60;
+  --sombra-hover: rgba(110, 76, 151, 0.25); /* versão mais recente */
+  --degrade-roxo: linear-gradient(135deg, var(--roxo-base), var(--roxo-escuro));
 }
 
 /* Resete da margem padrão do arquivo */
@@ -57,8 +61,6 @@ visibility: visible !important;
   z-index: 2147483647 !important;
   cursor: pointer !important;
 }
-/* Garante visibilidade do widget */
-
 
 /* Remove fallback se estiver usando */
 #vlibras-container {
