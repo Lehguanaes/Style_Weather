@@ -12,8 +12,6 @@
     width: 100%;
   } 
 
-
-
 .titulo{
   font-family: 'Poppins', sans-serif;
   position: relative;
@@ -22,6 +20,7 @@
   font-size: 2rem;
   margin-bottom: 15px;
 }
+
 .titulo::after {
   content: '';
   position: absolute;
@@ -154,7 +153,7 @@
   height: 4px;
   bottom: -4px;
   left: 0;
-  background-color: #fff;
+  background-color:#332248;
   border-radius: 4px;
   transform: scaleX(0.9);
   transform-origin: center;
@@ -178,7 +177,7 @@
 .textoIntro  h2 {
   font-size: 2rem;
   margin-bottom: 16px;
-  color: #fff;
+  color: var(--roxo-escuro);
 }
 
 
@@ -258,7 +257,6 @@
 
 }
 
-
 .cardContent {
   padding: 0px 16px 24px 16px;
   text-align: center;
@@ -302,7 +300,7 @@
 
 .novoTitulo {
   color: var(--branco);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   max-width: 1400px;
   margin: 0 auto;
@@ -328,20 +326,19 @@
 
 .uploadButton {
   width: 200px;
-  padding: 10px 15px;
-  background: linear-gradient(to right, var(--roxo-base), var(--roxo-escuro));
-  color: var(--branco);
+  padding: 10px 35px;
+  background: var(--roxo-base);
+  color: var(--roxo-escuro);
   border: none;
   border-radius: 30px;
-  font-size: 30px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-  margin-top: 20px;
 }
 
 .uploadButton:hover {
