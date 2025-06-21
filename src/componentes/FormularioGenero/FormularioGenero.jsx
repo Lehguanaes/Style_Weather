@@ -16,7 +16,7 @@ import neutroImg from "../../assets/icones/icone_neutras.png";
 
 
 const cidadesIniciais = [
-   { label: "Aracaju", value: "Aracaju" },
+    { label: "Aracaju", value: "Aracaju" },
     { label: "Belo Horizonte", value: "Belo Horizonte" },
     { label: "Belém", value: "Belém" },
     { label: "Brasília", value: "Brasília" },
@@ -97,13 +97,11 @@ const FormularioGenero = () => {
     <div className={style.background}>
       <div className={style.cardCadastro}>
         <div className={style.container}>
-          <h2>Qual estilo de roupa você prefere?</h2>
+          <h2>Suas Preferências</h2>
 
           {/* Select de Cidades (reutilizado) */}
           <div className={style.campoCidade}>
-            <label>
-              <strong>Sua cidade:</strong>
-            </label>
+          <h3>Qual cidade quer deixar pré-selecionada?</h3>
             <CreatableSelect
               options={opcoesCidades}
               onChange={(opcao) => setCidade(opcao ? opcao.value : "")}
@@ -114,7 +112,7 @@ const FormularioGenero = () => {
               classNamePrefix="select"
             />
           </div>
-
+          <h3>Que tipo de roupa você prefere?</h3>
           {/* Opções de look (existente) */}
           <div className={style.opcoesContainer}>
             {opcoesLook.map((opcao) => (

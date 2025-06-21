@@ -16,6 +16,7 @@
   --azul-claro: #3498db;
   --verde: #27ae60;
   --sombra-hover: rgba(110, 76, 151, 0.25); /* versão mais recente */
+  --sombra-leve: rgba(0, 0, 0, 0.05);
   --degrade-roxo: linear-gradient(135deg, var(--roxo-base), var(--roxo-escuro));
 }
 

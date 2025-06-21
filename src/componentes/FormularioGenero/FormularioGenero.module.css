@@ -1,56 +1,13 @@
 /* Fundo centralizado */
 .background {
-  min-height: 100vh; /* Permite crescer além da altura da tela */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Winky Rough', sans-serif;
-  padding-top: 80px;    /* Espaço para a navbar */
-  padding-bottom: 100px; /* Espaço para o rodapé */
+  padding-top: 80px;
+  padding-bottom: 100px;
   box-sizing: border-box;
-}
-
-
-
-/* Container do select */
-.campoCidade .select__control {
-  border: 2px solid #d1d5db !important;
-  border-radius: 8px !important;
-  min-height: 44px !important;
-  background: #f9fafb !important;
-  font-family: 'Winky Rough', sans-serif;
-  box-shadow: none !important;
-}
-
-/* Estado hover/focus */
-.campoCidade .select__control--is-focused {
-  border-color: #8b5cf6 !important;
-}
-
-/* Placeholder */
-.campoCidade .select__placeholder {
-  color: #9ca3af !important;
-  font-size: 14px;
-}
-
-/* Menu dropdown */
-.campoCidade .select__menu {
-  border-radius: 8px !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Opções */
-.campoCidade .select__option {
-  padding: 10px 15px !important;
-}
-
-.campoCidade .select__option--is-focused {
-  background: #f3f4f6 !important;
-}
-
-.campoCidade .select__option--is-selected {
-  background: #8b5cf6 !important;
-  color: white !important;
 }
 
 /* Container principal */
@@ -73,8 +30,57 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: var(--roxo-base);
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  padding-bottom: 0.8rem;
+  position: relative;
+  letter-spacing: -0.5px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: transform 0.4s ease;
+}
 
-/* Estilo para o select de cidades */
+h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) scaleX(0.8);
+  width: 70%;
+  height: 4px;
+  background: var(--degrade-roxo);
+  border-radius: 4px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.8;
+}
+
+.cardCadastro:hover h2 {
+  transform: translateY(-5px);
+}
+
+.cardCadastro:hover h2::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
+}
+
+/* Subtítulos */
+h3 {
+  font-family: 'Winky Rough', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: var(--preto);
+  width: 100%;
+  text-align: left;
+}
+
+/* Container do select */
 .campoCidade {
   margin-bottom: 20px;
   width: 100%;
@@ -84,25 +90,106 @@
   display: block;
   margin-bottom: 8px;
   font-size: 16px;
-  color: #333;
+  color: var(--cinza-texto);
 }
 
-/* Ajustes para o react-select */
-.select__control {
-  border: 1px solid #ccc !important;
-  border-radius: 4px !important;
-  min-height: 40px !important;
+/* Estilo do select sem alteração do z-index */
+.selectContainer {
+  width: 100%; /* Garante que o select ocupe toda a largura disponível */
 }
 
-.select__menu {
-  z-index: 10 !important; /* Garante que o dropdown fique acima de outros elementos */
+.selectContainer :global(.select__control) {
+  min-height: 48px;
+  border-radius: 10px;
+  border: 1px solid var(--cinza-escuro);
+  font-size: 0.95rem;
+  background-color: var(--branco);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinha o conteúdo ao início */
+  z-index: 1; /* Garantir que o select fique abaixo do filtro */
 }
 
-/* Título */
-h2 {
-  margin-bottom: 30px;
-  font-size: 30px;
+/* Ajustes para o react-select dentro do container campoCidade */
+.campoCidade :global(.select__control) {
+  border-radius: 8px !important;
+  min-height: 45px !important;
+  background: #ffffff !important;
   font-family: 'Winky Rough', sans-serif;
+  box-shadow: none !important;
+  border: 2px solid var(--preto);
+}
+
+.selectContainer :global(.select__control--is-focused),
+.campoCidade :global(.select__control--is-focused) {
+  border-color: var(--roxo-base) !important;
+  box-shadow: 0 0 0 3px rgba(101, 90, 181, 0.15), 0 6px 20px rgba(108, 92, 231, 0.1) !important;
+}
+
+.selectContainer :global(.select__single-value) {
+  align-self: flex-start;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: left;
+  width: 100%;
+}
+
+.selectContainer :global(.select__placeholder) {
+  text-align: left;
+  width: 100%;
+  color: var(--cinza-escuro);
+  font-size: 0.95rem;
+  align-self: flex-start;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.campoCidade :global(.select__placeholder) {
+  color: var(--cinza-escuro);
+  font-size: 14px;
+}
+
+.selectContainer :global(.select__menu),
+.campoCidade :global(.select__menu) {
+  border-radius: 10px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  background-color: var(--branco);
+  animation: fadeIn 0.25s ease-out;
+  z-index: 10 !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.selectContainer :global(.select__option),
+.campoCidade :global(.select__option) {
+  padding: 10px 15px !important;
+  font-family: 'Winky Rough', sans-serif;
+}
+
+.selectContainer :global(.select__option--is-focused),
+.campoCidade :global(.select__option--is-focused) {
+  background: #f3f4f6 !important;
+}
+
+.selectContainer :global(.select__option--is-selected),
+.campoCidade :global(.select__option--is-selected) {
+  background: linear-gradient(135deg, var(--roxo-base), var(--roxo-claro)) !important;
+  color: white !important;
+}
+
+.selectContainer :global(.select__dropdown-indicator) {
+  color: var(--roxo-base);
+  padding: 6px;
 }
 
 /* Container das opções */
@@ -162,7 +249,7 @@ h2 {
 .botaoCadastrar {
   width: 60%;
   padding: 12px;
-  background: var(--preto);
+  background: linear-gradient(to right, var(--roxo-escuro), var(--roxo-base));
   color: var(--branco);
   border: none;
   border-radius: 20px;
@@ -171,10 +258,13 @@ h2 {
   font-family: 'Winky Rough', sans-serif;
   transition: background 0.3s;
   margin-top: 30px;
+    transition: all 0.3s ease;
 }
 
 .botaoCadastrar:hover {
-  background: #222;
+  background: var(--roxo-escuro);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(110, 76, 151, 0.3);
 }
 
 /* Responsividade */
@@ -184,8 +274,8 @@ h2 {
     padding: 20px;
   }
 
-  h2 {
-    font-size: 24px;
+  h3 {
+    font-size: 22px;
   }
 
   .botaoCadastrar {
@@ -209,7 +299,4 @@ h2 {
     height: 100px;
   }
 
-  h2 {
-    font-size: 22px;
-  }
 }
