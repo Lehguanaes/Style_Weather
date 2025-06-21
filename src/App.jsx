@@ -11,6 +11,7 @@ import { EditarPerfil } from './pages/EditarPerfil/EditarPerfil';
 import { SobreNos } from './pages/SobreNos/SobreNos';
 import {Error404} from './componentes/Error404'; // Importando o componente de erro 404
 import { Documentacao } from './pages/Documentacao'; // Importa o novo componente
+import  { HomePage } from './pages/HomePage/HomePage'; // Importa a HomePage, se necessário
 import './global.css';
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
       <Router>
         <LayoutPrincipal>
           <Routes>
-            <Route path="/" element={<Inicial />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/inicial" element={<Inicial />} />
             <Route path="/cadastrar" element={<FormularioCadastrar />} />
             <Route path="/login" element={<Login />} />
             <Route path="/genero" element={<Genero />} />

@@ -7,4 +7,5 @@ export * from './Login';
 export * from './SobreNos';
 export * from './Genero';
 export * from './Documentacao';
+export * from './HomePage';
 

@@ -54,7 +54,7 @@ const NavbarLogin = () => {
         src={logo}
         alt="Logo"
         className={styles.logo}
-        onClick={() => { navigate('/'); window.location.reload(); }}
+        onClick={() => { navigate('/inicial'); window.location.reload(); }}
         title='Clique para voltar à página inicial'
       />
 
@@ -62,7 +62,7 @@ const NavbarLogin = () => {
         {/* Botão para Home */}
         <button
           className={styles.iconOnlyBtn}
-          onClick={() => { navigate('/'); window.location.reload(); }}
+          onClick={() => { navigate('/inicial'); window.location.reload(); }}
           title='Página inicial'
         >
           <img src={homeIcon} alt="Início" className={styles.icon} />

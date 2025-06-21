@@ -7,4 +7,4 @@ export * from './FormularioLogin';
 export * from './Navbar';
 export * from './NavbarLogin';
 export * from './Rodape';
-
+export * from './LayoutHome';
