@@ -38,7 +38,7 @@ const LayoutHome = () => {
 
 
   const handleEntrarClick = () => {
-    navigate('/inicial'); // Substitua pela sua rota desejada
+    navigate('/inicial'); 
   };
 
   return (
@@ -86,7 +86,7 @@ const LayoutHome = () => {
 
 <div className={style.secaoIntroInversa}>
   <img
-    src={ Roupas } // Altere para o nome correto da nova imagem
+    src={ Roupas } 
     alt="Roupas sugeridas pelo app"
     className={style.imagemIntroRoupas}
   />
