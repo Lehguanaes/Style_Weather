@@ -11,11 +11,11 @@ const FormularioPerfil = () => {
   email: "",
   tipoLook: "",
   profileImage: "",
-  cidade: "", // <-- ADICIONADO
+  cidade: "",
   originalNome: "",
   originalTipoLook: "",
   originalProfileImage: "",
-  originalCidade: "" //
+  originalCidade: ""
   });
 
   const cidadesIniciais = [
@@ -40,7 +40,6 @@ const FormularioPerfil = () => {
   { label: "Teresina", value: "Teresina" }
 ];
 
-
   const [profileImage, setProfileImage] = useState('');
   const auth = getAuth();
   const db = getFirestore();
@@ -55,15 +54,15 @@ const FormularioPerfil = () => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
           setUserData({
-           nome: userData.nome,
-  email: user.email,
-  tipoLook: userData.tipoLook || "",
-  cidade: userData.cidade || "", // <-- ADICIONADO
-  profileImage: userData.profileImage || "",
-  originalNome: userData.nome,
-  originalTipoLook: userData.tipoLook || "",
-  originalProfileImage: userData.profileImage || "",
-  originalCidade: userData.cidade || ""
+            nome: userData.nome,
+            email: user.email,
+            tipoLook: userData.tipoLook || "",
+            cidade: userData.cidade || "",
+            profileImage: userData.profileImage || "",
+            originalNome: userData.nome,
+            originalTipoLook: userData.tipoLook || "",
+            originalProfileImage: userData.profileImage || "",
+            originalCidade: userData.cidade || ""
           });
           setProfileImage(userData.profileImage || "");
         }
@@ -102,15 +101,13 @@ const FormularioPerfil = () => {
 
       if (userData.nome !== userData.originalNome) updatedData.nome = userData.nome;
       if (userData.tipoLook !== userData.originalTipoLook) updatedData.tipoLook = userData.tipoLook;
-     
       if (userData.cidade !== userData.originalCidade) {
-  updatedData.cidade = userData.cidade;
-}
-
+        updatedData.cidade = userData.cidade;
+      }
       // Verifica se a imagem foi alterada, caso contrário, usa a imagem padrão
       if (profileImage !== userData.originalProfileImage) {
         updatedData.profileImage = profileImage || {usuario};
-}
+      }
       // Se houver alterações, realizar a atualização
       if (Object.keys(updatedData).length > 0) {
         await updateDoc(docRef, updatedData);
@@ -124,15 +121,11 @@ const FormularioPerfil = () => {
     }
   };
 
-  return (
-    
+  return ( 
     <div className={style.background}>
       <div className={style.cardPerfil}>
         <div className={style.ladoEsquerdo}>
           <h1 className={style.titulo}>PERFIL</h1>
-
-
-
           <div className={style.imagemPerfilContainer}>
             <img
               src={profileImage || usuario}
@@ -152,7 +145,6 @@ const FormularioPerfil = () => {
             />
           </div>
         </div>
-
         <div className={style.inputs}>
           <label className={style.label}>Email:</label>
           <input
@@ -161,8 +153,7 @@ const FormularioPerfil = () => {
             name="email"
             value={userData.email}
             disabled
-          />
-          
+          /> 
           <label className={style.label}>Nome:</label>
           <input
             type="text"
@@ -170,29 +161,26 @@ const FormularioPerfil = () => {
             value={userData.nome}
             onChange={handleInputChange}
           />
-
-<label className={style.label}>Cidade:</label>
-<input
-  list="lista-cidades"
-  name="cidade"
-  value={userData.cidade}
-  onChange={handleInputChange}
-  className={style.inputsPerfil}
-/>
-
-<datalist id="lista-cidades">
-  <option value="São Paulo" />
-  <option value="Rio de Janeiro" />
-  <option value="Belo Horizonte" />
-  <option value="Porto Alegre" />
-  <option value="Curitiba" />
-  <option value="Salvador" />
-  <option value="Recife" />
-  <option value="Fortaleza" />
-  <option value="Manaus" />
-  <option value="Brasília" />
-</datalist>
-
+          <label className={style.label}>Cidade:</label>
+          <input
+            list="lista-cidades"
+            name="cidade"
+            value={userData.cidade}
+            onChange={handleInputChange}
+            className={style.inputsPerfil}
+          />
+          <datalist id="lista-cidades">
+            <option value="São Paulo" />
+            <option value="Rio de Janeiro" />
+            <option value="Belo Horizonte" />
+            <option value="Porto Alegre" />
+            <option value="Curitiba" />
+            <option value="Salvador" />
+            <option value="Recife" />
+            <option value="Fortaleza" />
+            <option value="Manaus" />
+            <option value="Brasília" />
+          </datalist>
           <label className={style.label}>Estilo de Roupa:</label>
           <select
             name="tipoLook"
@@ -205,7 +193,6 @@ const FormularioPerfil = () => {
             <option value="masculino">Masculino</option>
             <option value="neutro">Neutro</option>
           </select>
-
           <button onClick={handleAtualizar}>Atualizar</button>
         </div>
       </div>

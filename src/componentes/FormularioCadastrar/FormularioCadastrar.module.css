@@ -1,47 +1,54 @@
-/* src/pages/Cadastrar/Cadastrar.module.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
   --roxo-claro: #a076cb;
   --roxo-base: #9b7cbb;
   --roxo-escuro: #2e1647;
   --branco: #ffffff;
-  --preto: #000000;
-}
+  --preto: #1a1919;
+  --cinza-borda: rgba(110, 76, 151, 0.15);
+  --cinza-texto: #4a4a4a;
+  --sombra-hover: rgba(110, 76, 151, 0.25);
+  --degrade-roxo: linear-gradient(135deg, var(--roxo-base), var(--roxo-escuro));
+}  
 
-/* ---------- LAYOUT BASE ---------- */
 .background {
-  height: 100vh;
-  padding-top: 80px; /* Altura da navbar */
-  height: auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  padding: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  padding: 2rem;
   box-sizing: border-box;
 }
 
 .cardCadastro {
-  position: relative;
-  z-index: 1; /* Mantém abaixo do menu mobile */
-  margin: 50px auto 20px auto; 
-  width: 800px;
   background: var(--branco);
-  padding: 40px 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
   border: 2px solid var(--roxo-claro);
-  transition: all 0.3s ease;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px var(--sombra-hover);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 30px;
+  max-width: 800px;
+  width: 100%;
+  gap: 30px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .cardCadastro:hover {
-  box-shadow: 0 12px 30px rgba(110, 76, 151, 0.15);
-  border-color: var(--roxo-base);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--sombra-hover);
 }
 
 .inputs input,
@@ -103,34 +110,43 @@
 }
 
 /* ---------- TÍTULO ---------- */
+.cardCadastro:hover .titulo {
+  transform: translateY(-5px);
+  transition: transform 0.4s ease;
+}
+
 .titulo {
   font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--roxo-base);
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 0.8rem;
   position: relative;
-  display: inline-block;
-  color: var(--roxo-escuro);
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: transform 0.4s ease;
 }
 
 .titulo::after {
   content: '';
   position: absolute;
-  width: 100%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) scaleX(0.8);
+  width: 70%;
   height: 4px;
-  bottom: -8px;
-  left: 0;
-  background: linear-gradient(90deg, var(--roxo-claro), var(--roxo-escuro), var(--roxo-claro));
+  background: var(--degrade-roxo);
   border-radius: 4px;
-  transform: scaleX(0.9);
-  transform-origin: center;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: transform 0.4s ease, opacity 0.4s ease;
   opacity: 0.8;
 }
 
-.titulo:hover::after {
-  transform: scaleX(1);
+.cardCadastro:hover .titulo::after {
+  transform: translateX(-50%) scaleX(1);
   opacity: 1;
-  height: 5px;
 }
 
 /* ---------- LABELS E INPUTS ---------- */
@@ -139,14 +155,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.label label {
-  font-size: 16px;
-  font-weight: bold;
-  font-family: 'Winky Rough', sans-serif;
-  color: var(--roxo-escuro);
-  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--cinza-texto);
 }
 
 .inputs {
@@ -183,7 +195,6 @@
   padding: 12px;
   color: var(--branco);
   background: linear-gradient(to right, var(--roxo-escuro), var(--roxo-base));
-
   border: none;
   border-radius: 20px;
   font-size: 16px;
@@ -273,8 +284,8 @@
 /* ---------- RESPONSIVIDADE ---------- */
 @media (max-width: 992px) {
   .cardCadastro {
-    padding-top: 60px;
-    width: 95%;
+    flex-direction: column;
+    align-items: center;
     padding: 30px 20px;
   }
 

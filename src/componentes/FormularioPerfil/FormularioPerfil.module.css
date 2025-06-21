@@ -1,11 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --roxo-claro: #a076cb;
+  --roxo-base: #9b7cbb;
+  --roxo-escuro: #2e1647;
+  --branco: #ffffff;
+  --preto: #1a1919;
+  --cinza-borda: rgba(110, 76, 151, 0.15);
+  --cinza-texto: #4a4a4a;
+  --sombra-hover: rgba(110, 76, 151, 0.25);
+  --degrade-roxo: linear-gradient(135deg, var(--roxo-base), var(--roxo-escuro));
+}  
+
 .background {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  background-color: #ffffff;
-  padding: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  padding: 2rem;
   box-sizing: border-box;
 }
 
@@ -24,8 +38,18 @@
   width: 100%;
   gap: 30px;
   box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cardPerfil:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--sombra-hover);
+}
 
 .ladoEsquerdo, .inputs {
   flex: 1 1 300px;
@@ -38,24 +62,43 @@
   align-items: stretch;
 }
 
+.cardPerfil:hover .titulo {
+  transform: translateY(-5px);
+  transition: transform 0.4s ease;
+}
+
 .titulo {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  color: var(--roxo-base);
   font-size: 2rem;
-  margin-bottom: 10px;
+  color: var(--roxo-base);
   text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  position: relative;
+  letter-spacing: -0.5px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: transform 0.4s ease;
 }
 
 .titulo::after {
   content: '';
-  display: block;
-  width: 100%;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) scaleX(0.8);
+  width: 70%;
   height: 4px;
-  margin-top: 6px;
-  background: linear-gradient(90deg, var(--roxo-claro), var(--roxo-escuro), var(--roxo-claro));
+  background: var(--degrade-roxo);
   border-radius: 4px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
   opacity: 0.8;
+}
+
+.cardPerfil:hover .titulo::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
 }
 
 .imagemPerfil {
@@ -65,6 +108,27 @@
   object-fit: cover;
   border: 3px solid var(--roxo-base);
   margin-bottom: 15px;
+  animation: float 4s ease-in-out infinite;
+  box-shadow: 
+    0 6px 15px rgba(110, 76, 151, 0.15),
+    inset 0 0 10px rgba(255, 255, 255, 0.4);
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 3px 10px rgba(110, 76, 151, 0.1));
+}
+
+.imagemPerfil:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(110, 76, 151, 0.4),
+              inset 0 0 25px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .uploadButton {
@@ -93,6 +157,13 @@
   display: none;
 }
 
+label {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 3px;
+  color: var(--cinza-texto);
+}
+
 .inputs input,
 .inputs select {
   width: 100%;
@@ -104,30 +175,58 @@
   font-family: 'Poppins', sans-serif;
   background-color: var(--branco);
   color: var(--cinza-texto);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .inputs .email{
- background-color: rgb(214, 214, 214);
- border: 2px solid rgb(151, 151, 151);
+  background-color: rgb(214, 214, 214);
+  border: 2px solid rgb(151, 151, 151);
+}
+
+/* Efeito hover para todos inputs */
+input:hover {
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 6px var(--sombra-hover);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 0 3px rgba(160, 118, 203, 0.2);
+}
+
+/* Efeito hover para todos inputs */
+.inputs select:hover {
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 6px var(--sombra-hover);
+}
+
+.inputs select:focus {
+  outline: none;
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 0 3px rgba(160, 118, 203, 0.2);
 }
 
 .inputs button {
+  width: 100%;
   padding: 12px;
-  background: var(--roxo-claro);
   color: var(--branco);
+  background: linear-gradient(to right, var(--roxo-escuro), var(--roxo-base));
   border: none;
   border-radius: 20px;
   font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
+  font-family: 'Winky Rough', sans-serif;
+  transition: all 0.3s ease;
   margin-top: 20px;
 }
 
 .inputs button:hover {
   background: var(--roxo-escuro);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(110, 76, 151, 0.25);
+  box-shadow: 0 4px 12px rgba(110, 76, 151, 0.3);
 }
+
 @media (max-width: 768px) {
   .cardPerfil {
     flex-direction: column;
@@ -172,7 +271,6 @@
     width: 180px;
   }
 }
-
 
 @media (max-width: 480px) {
   .titulo {

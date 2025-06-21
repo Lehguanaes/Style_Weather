@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import style from './FormularioCadastrar.module.css';
 import manequim from '../../assets/icones/manequim.png';
 import { SweetAlert } from '../SweetAlert';
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // ÍCONES ADICIONADOS
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const FormularioCadastrar = () => {
   const [formData, setFormData] = useState({
@@ -103,7 +103,7 @@ const FormularioCadastrar = () => {
             placeholder="Mínimo 6 caracteres"
             value={formData.senha}
             onChange={handleChange}
-            className={style.inputSenha}
+            className={style.inputSenha} 
           />
           <span
             onClick={() => setMostrarSenha(prev => !prev)}

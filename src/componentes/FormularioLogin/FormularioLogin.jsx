@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import style from './FormularioLogin.module.css';
 import usuario from '../../assets/icones/usuario.png';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -7,8 +7,7 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { verificarSenha } from '../../services/Auth';
 import { SweetAlert } from '../SweetAlert';
 import { AppContext } from "../../context/AppContext";
-import { Eye, EyeOff } from 'react-feather';
-import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const FormularioLogin = () => {
   const [email, setEmail] = useState("");
@@ -46,15 +45,15 @@ const FormularioLogin = () => {
         const senhaCorreta = await verificarSenha(senha, dadosUsuario.senha);
 
         if (senhaCorreta) {
-    setUserData(dadosUsuario);
-await SweetAlert.successPerfil("Login bem-sucedido!");
+          setUserData(dadosUsuario);
+          await SweetAlert.successPerfil("Login bem-sucedido!");
 
-setTimeout(() => {
-  navigate("/", {
-    state: { fromLogin: true },
-    replace: true
-  });
-}, 500); 
+          setTimeout(() => {
+            navigate("/", {
+              state: { fromLogin: true },
+              replace: true
+            });
+          }, 500);
         } else {
           await SweetAlert.error("Senha incorreta.", { duration: 5000 });
         }
@@ -89,27 +88,39 @@ setTimeout(() => {
               placeholder="exemplo@dominio.com"
               onChange={(e) => setEmail(e.target.value)}
               required
+              className={style.inputSenha}  // adicionando para o hover funcionar também
             />
           </div>
 
           <div className={style.formGroup}>
             <label>Senha:</label>
-            <div className={style.passwordWrapper}>
+            <div className={style.senhaContainer}>
               <input
                 type={senhaVisivel ? "text" : "password"}
+                name="senha"
+                placeholder="Mínimo 6 caracteres"
                 value={senha}
-                placeholder="Insira a sua senha"
                 onChange={(e) => setSenha(e.target.value)}
-                required
+                className={style.inputSenha}
               />
-              <div className={style.eyeIcon} onClick={togglePasswordVisibility}>
-                {senhaVisivel ? <EyeOff size={20} /> : <Eye size={20} />}
-              </div>
+              <span
+                onClick={togglePasswordVisibility}
+                className={style.iconeSenha}
+                title={senhaVisivel ? "Ocultar senha" : "Mostrar senha"}
+              >
+                {senhaVisivel ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
           </div>
-          <p>Não possui cadastro? <Link to="/cadastrar">Cadastre-se!</Link></p>
 
-          <button type="submit">Entrar</button>
+          <p>
+            Não possui cadastro? <Link to="/cadastrar">Cadastre-se!</Link>
+          </p>
+
+          <button type="submit" disabled={estaLogando}>
+            {estaLogando ? "Entrando..." : "Entrar"}
+          </button>
+
           {mensagem && <p className={style.mensagem}>{mensagem}</p>}
         </form>
       </div>
