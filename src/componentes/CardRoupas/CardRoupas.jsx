@@ -819,12 +819,12 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
   {recomendacao.imagens.map((img, index) => {
     // Extrai a pasta pai e o nome do arquivo
     const pathParts = img.split('/');
-    const folder = pathParts[pathParts.length]; // Pega a pasta pai
+    const folder = pathParts[pathParts.length - 2]; // Pega a pasta pai
     console.log("folder:", folder)
 
     const filename = pathParts[pathParts.length - 1]; // Pega o nome do arquivo 
 
-    const chave = `${folder}/${filename}`;
+    const chave = `academia/${filename}`;
     
     const linkCompra = LinksCompra[chave];
     console.log("antes1");
