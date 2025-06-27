@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import style from './LayoutHome.module.css';
 
 import img1 from '../../assets/imagens/img1.jpg';
-import img2 from '../../assets/imagens/img2.jpg';
-import img3 from '../../assets/imagens/img3.jpg';
+import img2 from '../../assets/imagens/img2.png';
+import img3 from '../../assets/imagens/img3.png';
 
 import setaEsquerda from '../../assets/imagens/seta e.png';
 import setaDireita from '../../assets/imagens/seta d.png';

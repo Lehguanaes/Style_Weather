@@ -326,8 +326,8 @@
 
 
 .uploadButton {
-  width: 200px;
-  padding: 12px;
+  width: 260px;
+  padding: 14px;
   color: var(--branco);
   background: linear-gradient(to right, var(--roxo-escuro), var(--roxo-base));
   border: none;
