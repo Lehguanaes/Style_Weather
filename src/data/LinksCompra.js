@@ -1,6 +1,24 @@
 // src/componentes/LinkCompra.js
-const LinksCompra = {
-  // ameno-feminino-balada
+
+function gerarChave(path) {
+  try {
+    const partes = path.split('/');
+    const nomeArquivo = partes.at(-1);
+    const pasta = partes.at(-2);
+
+    // Remove hash do tipo "imagem.abc123.png" → "imagem.png"
+    const nomeSemHash = nomeArquivo.replace(/\.[a-z0-9]{8,}\.png$/, '.png');
+
+    return `${pasta}/${nomeSemHash}`;
+  } catch (e) {
+    return '';
+  }
+}
+
+const LinksCompraRaw = {
+
+  
+
   'balada/croopped_black.png': 'https://br.pinterest.com/pin/470415123590044547/',
   'balada/macacao.png': 'https://br.shein.com/ark/3715?goods_id=43028053&test=5051&url_from=adhub548206128&scene=1&pf=google&ad_type=DPA&language=pt-br&siteuid=br&landing_page_id=3715&ad_test_id=12155&requestId=olw-4swfsymjgmbo&cid=22637271053&gad_source=1&skucode=I52io48p74ew&onelink=0/googlefeed_br&network=g&gad_campaignid=22637271053&gclid=CjwKCAjw3_PCBhA2EiwAkH_j4pEbtyo7TqLvyUG1uBIKU0XeEl8R5mcMmAtrcj1ks7w3c5td20Tc8xoC7M4QAvD_BwE&adid=756349749335&geoid=9197054&gbraid=0AAAAADm0yO6oU-yCsMLVujwmhsBAbqatU&setid=178905808005&kwd=pla-329397653502&currency=BRL&lang=pt',
   'balada/jaqueta_couro.png': 'https://www.omk.com.br/jaqueta-de-couro-feminina-perfecto-ref-602-branco-m.html',
@@ -43,12 +61,18 @@ const LinksCompra = {
   'academia/regata_branca.png' : 'https://br.pinterest.com/pin/214061788536810496/',
  'academia/short_saia_preto.png' : 'https://www.amazon.com.br/feminina-Dri-fit-Victory-Flouncy-branco/dp/B09XY41ZW4/ref=sr_1_8?adgrpid=1142393297367349&dib=eyJ2IjoiMSJ9.LFk_RdtO1aFpdN1kmirmllhaKupKRkzZLziDlNS4ifXuVcdOx6-TpBV-lRwcJA263cZqdbyU9RNHXYAgk5CyI3zXrmJb7FbRpF4gFMFrttc4gCP2LlRT3-lmWpiC6D-v8l92dLtNJHLtIxkYht2yC3eO4qDZJtNVu_kbuTEF3XncJsP80TVu5tqgvJOfvKQQzcfqQWYdFveYzj7Eagl0SXLY9yE3YXHFqZAMVI6gRDa0vSoHNTH5eMIPKeWVKR64EUETM5IXlAO0EVL-ukyQzG_1xrEoJ0Ho4P4EriOpAXw.-vF3OX9vsgyppN3MQL29R6Kb-vPKsCHujE_AwuQ7NAw&dib_tag=se&hvadid=71399747902346&hvbmt=be&hvdev=c&hvlocphy=116068&hvnetw=o&hvqmt=e&hvtargid=kwd-71400123378359%3Aloc-20&hydadcr=12134_13346736&keywords=shorts+saia+nike&mcid=814e438424553875b87f21f9bfb4424c&qid=1751004973&sr=8-8&ufe=app_do%3Aamzn1.fos.25548f35-0de7-44b3-b28e-0f56f3f96147',
  'academia/tenis_preto.png' : 'https://www.lojastorra.com.br/tenis-masculino-esportivo-adidas-run-72-preto-61241000677521/p?idsku=341259&utm_source=bing&utm_medium=cpc&utm_campaign=ic_bing_perf_conv_vend_aon_shopping_comp&msclkid=94824f952b5011bd062d27cb1fca73c7',
- '/academia/garrafa_agua.png' : 'https://www.madeiramadeira.com.br/garrafa-1l-com-canudo-com-marcador-de-agua-cinza-em-policabornato-lyor-700130616.html',
+ 'academia/garrafa_agua.png' : 'https://www.madeiramadeira.com.br/garrafa-1l-com-canudo-com-marcador-de-agua-cinza-em-policabornato-lyor-700130616.html',
  'academia/fone.png' : 'https://www.mercadolivre.com.br/fone-de-ouvido-bluetooth-jbl-free-ii-in-ear-preto/p/MLB19223351?pdp_filters=item_id%3AMLB5405215606&from=gshop&matt_tool=14213447&matt_word=&matt_source=bing&matt_campaign=MLB_ML_BING_AO_CE-ALL-ALL_X_PLA_ALLB_TXS_ALL&matt_campaign_id=382858295&matt_ad_group=CE&matt_match_type=e&matt_network=o&matt_device=c&matt_keyword=default&msclkid=67a9ff6039411566c892973e0d5e78b2&utm_source=bing&utm_medium=cpc&utm_campaign=MLB_ML_BING_AO_CE-ALL-ALL_X_PLA_ALLB_TXS_ALL&utm_term=4581596253419723&utm_content=CE',
  'academia/fone.png' :  'https://www.mercadolivre.com.br/fone-de-ouvido-bluetooth-jbl-free-ii-in-ear-preto/p/MLB19223351?pdp_filters=item_id%3AMLB5405215606&from=gshop&matt_tool=14213447&matt_word=&matt_source=bing&matt_campaign=MLB_ML_BING_AO_CE-ALL-ALL_X_PLA_ALLB_TXS_ALL&matt_campaign_id=382858295&matt_ad_group=CE&matt_match_type=e&matt_network=o&matt_device=c&matt_keyword=default&msclkid=67a9ff6039411566c892973e0d5e78b2&utm_source=bing&utm_medium=cpc&utm_campaign=MLB_ML_BING_AO_CE-ALL-ALL_X_PLA_ALLB_TXS_ALL&utm_term=4581596253419723&utm_content=CE',
 
 
 
 };
+
+const LinksCompra = {};
+for (const chave in LinksCompraRaw) {
+  const novaChave = gerarChave(chave);
+  LinksCompra[novaChave] = LinksCompraRaw[chave];
+}
 
 export { LinksCompra };
