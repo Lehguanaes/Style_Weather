@@ -822,12 +822,14 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     const folder = pathParts[pathParts.length - 2]; // Pega a pasta pai
     console.log("folder:", folder)
 
-    const filename = pathParts[pathParts.length - 1]; // Pega o nome do arquivo
-    console.log("filename:", filename)
+    const filename = pathParts[pathParts.length - 1]; // Pega o nome do arquivo 
 
     const chave = `${folder}/${filename}`;
     
     const linkCompra = LinksCompra[chave];
+    console.log("antes1");
+    console.log("filename:", filename)
+    console.log("antes2");
     console.log(chave)
     console.log(linkCompra);
     console.log("teste");
