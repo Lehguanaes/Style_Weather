@@ -20,6 +20,10 @@
 
 /* Card de cadastro */
 .cardCadastro {
+  background: var(--branco);
+  border: 2px solid var(--roxo-claro);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px var(--sombra-hover);
   position: relative;
   z-index: 1;
   width: 800px;
@@ -27,7 +31,18 @@
   padding: 30px 100px;
   border-radius: 15px;
   margin: 10px auto;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cardCadastro:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--sombra-hover);
 }
 
 h2 {
@@ -72,9 +87,9 @@ h2::after {
 /* Subtítulos */
 h3 {
   font-family: 'Winky Rough', sans-serif;
-  font-weight: 700;
+  font-weight: 700; 
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 23px;
   color: var(--preto);
   width: 100%;
   text-align: left;
@@ -217,6 +232,12 @@ h3 {
   text-align: center;
   background-color: var(--branco);
   box-shadow: 0 4px 8px var(--sombra-leve);
+  animation: dancarCard 4s ease-in-out infinite;
+}
+
+@keyframes dancarCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 .opcao:hover {

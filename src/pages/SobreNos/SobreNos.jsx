@@ -62,7 +62,6 @@ function SobreNos() {
             styleweatherinfo@gmail.com
           </a>
         </p>
-           
           </div>
           <div className={style.signup}>
             {usuarioLogado ? (

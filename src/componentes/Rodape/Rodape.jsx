@@ -11,11 +11,12 @@ const Rodape = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [location.pathname]);
 
-    const handleEnviarEmail = () => {
-        const email = 'styleweatherinfo@gmail.com';
-        const assunto = encodeURIComponent('Comentário do usuário');
-        const corpo = encodeURIComponent(mensagem);
-        window.location.href = `mailto:${email}?subject=${assunto}&body=${corpo}`;
+    const handleEmailClick = (e) => {
+        e.preventDefault();
+        window.open(
+            'https://mail.google.com/mail/?view=cm&fs=1&to=styleweatherinfo@gmail.com&su=Contato%20Style%20Weather',
+            '_blank'
+        );
     };
 
     return (
@@ -33,16 +34,15 @@ const Rodape = () => {
                 </div>
                 <div className={styles.coluna}>
                     <h4>Contate-nos</h4>
-                    <textarea
-                        className={styles.textarea}
-                        rows="2"
-                        placeholder="Digite sua mensagem..."
-                        value={mensagem}
-                        onChange={(e) => setMensagem(e.target.value)}
-                    />
-                    <button className={styles.botao} onClick={handleEnviarEmail}>
-                        Enviar
-                    </button>
+                    <p>
+                        <a 
+                            href="#"
+                            onClick={handleEmailClick}
+                            className={styles.emailLink}
+                        >
+                            styleweatherinfo@gmail.com
+                        </a>
+                    </p>                    
                 </div>
             </div>
             <div className={styles.direitos}>
