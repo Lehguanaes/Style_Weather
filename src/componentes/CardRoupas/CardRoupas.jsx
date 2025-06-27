@@ -828,6 +828,7 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     filename = filename.replace(/-\w+(?=\.\w+$)/, "");
 
     const lugarSelecionado = localStorage.getItem('lugarSelecionado');
+    const chave = `${lugarSelecionado}/${filename}`;
 
     
     const linkCompra = LinksCompra[chave];
