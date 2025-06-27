@@ -25,7 +25,7 @@ const LayoutHome = () => {
   useEffect(() => {
     const intervalo = setInterval(() => {
       avancarImagem();
-    }, 5000); // Troca a imagem a cada 5 segundos
+    }, 3000); // Troca a imagem a cada 5 segundos
 
     return () => clearInterval(intervalo);
   }, []);

@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './Rodape.module.css';
 import logo from '../../assets/logo/logo_sobre_nos.png';
 import { Link, useLocation } from 'react-router-dom';
+import { AppContext } from '../../context/AppContext';
 
 const Rodape = () => {
     const [mensagem, setMensagem] = useState('');
     const location = useLocation();
+    const { usuarioLogado } = useContext(AppContext); // Pegando o estado de login do contexto
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -28,7 +30,10 @@ const Rodape = () => {
                 <div className={styles.coluna}>
                     <h4>Navegue pelo site</h4>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
+                        <li>
+                            {/* Link condicional baseado no login */}
+                            <Link to={usuarioLogado ? "/inicial" : "/"}>Home</Link>
+                        </li>
                         <li><Link to="/sobre-nos">Sobre a Style Weather</Link></li>
                     </ul>
                 </div>

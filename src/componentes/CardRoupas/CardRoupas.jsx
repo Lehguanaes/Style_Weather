@@ -815,51 +815,58 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
       <h3 className={styles.titulo}>Recomendações de Look:</h3>
       <p className={styles.descricao}>{recomendacao.texto}</p>
       
-      <div className={styles.gridRoupas}>
-   {recomendacao.imagens.map((img, index) => {
-  const linkCompra = LinksCompra[img]; // usa o caminho completo como chave
+<div className={styles.gridRoupas}>
+  {recomendacao.imagens.map((img, index) => {
+    // Extrai o caminho relativo de forma mais robusta
+    const pathParts = img.split('/');
+    const assetsIndex = pathParts.indexOf('assets');
+    const relativePath = assetsIndex >= 0 
+      ? pathParts.slice(assetsIndex + 1).join('/')
+      : pathParts.slice(pathParts.indexOf('looks')).join('/');
+    
+    const linkCompra = LinksCompra[relativePath];
 
-  return (
-    <div key={index} className={styles.itemRoupa}>
-      <div className={styles.imageContainer}>
+    return (
+      <div key={index} className={styles.itemRoupa}>
+        <div className={styles.imageContainer}>
+          <img
+            src={img}
+            alt={`Peça de roupa ${index + 1}`}
+            className={styles.imagemRoupa}
+          />
+
+          {linkCompra ? (
+            <a
+              href={linkCompra}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.buyLink}
+            >
+              Clique para ver onde comprar
+            </a>
+          ) : (
+            <div className={`${styles.buyLink} ${styles.inativo}`}>
+              Sem link de compra
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  })}
+
+  {temChuva && (
+    <div className={`${styles.itemRoupa} ${styles.alertaChuva}`}>
+      <div className={styles.conteudoAlerta}>
         <img
-          src={img}
-          alt={`Peça de roupa ${index + 1}`}
+          src={guarda_chuva}
+          alt="Guarda-chuva"
           className={styles.imagemRoupa}
         />
-
-        {linkCompra ? (
-          <a
-            href={linkCompra}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.buyLink}
-          >
-                    Clique para ver onde comprar
-                  </a>
-                ) : (
-                  <div className={`${styles.buyLink} ${styles.inativo}`}>
-                    Sem link de compra
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
-
-        {temChuva && (
-          <div className={`${styles.itemRoupa} ${styles.alertaChuva}`}>
-            <div className={styles.conteudoAlerta}>
-              <img
-                src={guarda_chuva}
-                alt="Guarda-chuva"
-                className={styles.imagemRoupa}
-              />
-              <p className={styles.alertaChuvaTexto}>Não esqueça o guarda-chuva!</p>
-            </div>
-          </div>
-        )}
+        <p className={styles.alertaChuvaTexto}>Não esqueça o guarda-chuva!</p>
       </div>
+    </div>
+  )}
+</div>
     </div>
   );
 };
