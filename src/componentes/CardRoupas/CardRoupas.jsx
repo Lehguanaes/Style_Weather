@@ -818,10 +818,10 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
 <div className={styles.gridRoupas}>
   {recomendacao.imagens.map((img, index) => {
     // Extrai a pasta pai e o nome do arquivo
-    console.log("imagem:", img)
+    console.log("imagem:", img);
     const pathParts = img.split('/');
     const folder = pathParts[pathParts.length - 2]; // Pega a pasta pai
-    console.log("folder:", folder)
+    // console.log("folder:", folder)
 
     let filename = pathParts[pathParts.length - 1]; // Pega o nome do arquivo 
     // tirar o sufixo que o vercel gera
@@ -830,15 +830,15 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     const chave = `academia/${filename}`;
     
     const linkCompra = LinksCompra[chave];
-    console.log("antes1");
-    console.log("filename:", filename)
-    console.log("antes2");
-    console.log(chave)
-    console.log(linkCompra);
-    console.log("teste");
-    console.log(LinksCompra);
-    console.log("------------------------------------")
-    console.log(LinksCompra[chave]);
+    // console.log("antes1");
+    // console.log("filename:", filename)
+    // console.log("antes2");
+    // console.log(chave)
+    // console.log(linkCompra);
+    // console.log("teste");
+    // console.log(LinksCompra);
+    // console.log("------------------------------------")
+    // console.log(LinksCompra[chave]);
 
     return (
       <div key={index} className={styles.itemRoupa}>
