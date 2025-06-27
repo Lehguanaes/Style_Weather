@@ -820,7 +820,7 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     // Extrai a pasta pai e o nome do arquivo
     console.log("imagem:", img);
     const pathParts = img.split('/');
-    const folder = pathParts[pathParts.length - 2]; // Pega a pasta pai
+    const folder = pathParts[pathParts.length -5]; // Pega a pasta pai
     // console.log("folder:", folder)
 
     let filename = pathParts[pathParts.length - 1]; // Pega o nome do arquivo 
