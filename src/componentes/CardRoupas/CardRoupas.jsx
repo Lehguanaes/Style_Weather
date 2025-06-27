@@ -823,11 +823,13 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     console.log("folder:", folder)
 
     let filename = pathParts[pathParts.length - 1]; // Pega o nome do arquivo 
+    // tirar o sufixo que o vercel gera
     filename = filename.replace(/-\w+(?=\.\w+$)/, "");
 
     const chave = `academia/${filename}`;
     
     const linkCompra = LinksCompra[chave];
+    console.log("imagem:", img)
     console.log("antes1");
     console.log("filename:", filename)
     console.log("antes2");
