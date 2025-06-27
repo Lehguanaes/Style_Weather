@@ -824,7 +824,8 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     const chave = `${folder}/${filename}`;
     
     const linkCompra = LinksCompra[chave];
-    console.log("teste");
+    console.log(chave)
+    console.log();
     console.log(linkCompra);
     console.log("teste");
 
