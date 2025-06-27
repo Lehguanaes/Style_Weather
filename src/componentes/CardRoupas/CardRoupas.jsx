@@ -828,6 +828,7 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     console.log();
     console.log(linkCompra);
     console.log("teste");
+    console.log(LinksCompra);
 
     return (
       <div key={index} className={styles.itemRoupa}>
