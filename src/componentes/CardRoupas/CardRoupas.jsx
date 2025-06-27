@@ -824,6 +824,9 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     const chave = `${folder}/${filename}`;
     
     const linkCompra = LinksCompra[chave];
+    console.log("teste");
+    console.log(linkCompra);
+    console.log("teste");
 
     return (
       <div key={index} className={styles.itemRoupa}>
