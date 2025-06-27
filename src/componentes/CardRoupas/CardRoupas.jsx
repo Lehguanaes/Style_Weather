@@ -822,7 +822,8 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     const folder = pathParts[pathParts.length - 2]; // Pega a pasta pai
     console.log("folder:", folder)
 
-    const filename = pathParts[pathParts.length - 1]; // Pega o nome do arquivo 
+    let filename = pathParts[pathParts.length - 1]; // Pega o nome do arquivo 
+    filename = filename.replace(/-\w+(?=\.\w+$)/, "");
 
     const chave = `academia/${filename}`;
     
