@@ -38,7 +38,7 @@ const LayoutHome = () => {
 
 
   const handleEntrarClick = () => {
-    navigate('/inicial'); 
+    navigate('/login'); 
   };
 
   return (

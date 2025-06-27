@@ -1,162 +1,216 @@
 .container {
-  margin-top: 2rem;
-  padding: 2.5rem;
-  background: var(--branco); /* Usando a cor branca definida */
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--branco);
   border-radius: 24px;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .titulo {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 1.5rem;
-  color: var(--cinza-escuro); /* Usando a cor cinza-escuro */
+  color: var(--cinza-escuro);
   font-family: 'Poppins', sans-serif;
   text-align: center;
 }
 
 .descricao {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--cinza-medio); /* Usando a cor cinza-medio */
+  color: var(--cinza-medio);
   margin-bottom: 2.5rem;
   text-align: center;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-} 
+}
 
 .gridRoupas {
+  margin-bottom: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
   margin-top: 2rem;
+  padding: 0.5rem;
 }
 
-.itemRoupa, .alertaChuva  {
+/* Estilos do Card */
+.itemRoupa {
   position: relative;
-  overflow: hidden;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
   aspect-ratio: 3/4;
-  background: var(--cinza-claro); /* Usando a cor cinza-claro */
-  height: 320px; /* Altura fixa para uniformidade */
+  background: var(--branco);
 }
 
-.itemRoupa .alertaChuva:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 32px rgba(108, 92, 231, 0.2);
+.itemRoupa:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(108, 92, 231, 0.15);
 }
 
-.conteudoAlerta {
+/* Container da Imagem */
+.imageContainer {
+  position: relative;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  padding: 1rem;
-  text-align: center;
-  background-color: var(--branco);
+  padding: 1.5rem;
+  background: var(--branco);
 }
-
-.alertaChuvaTexto {
-  margin-top: 0.5rem;
-  font-weight: bold;
-  color: var(--cinza-escuro);
-  background-color: var(--branco);
-  padding: 0.5rem;
-  word-wrap: break-word;
-}
-
 
 .imagemRoupa {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Alterado para 'contain' para mostrar a peça inteira */
-  display: block;
-  padding: 1.5rem; /* Espaço interno para a roupa respirar */
-  transition: transform 0.5s ease;
-  background-color: var(--branco); /* Usando a cor branca */
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  z-index: 1;
 }
 
-.imagemRoupa:hover {
+.itemRoupa:hover .imagemRoupa {
   transform: scale(1.05);
 }
 
-/* Efeito de overlay ao passar o mouse */
+
+
+
+.buyLink {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--roxo-escuro);
+  color: white;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10; 
+  transform: translateY(10px);
+  cursor: pointer;
+  border: none;
+  display: block; 
+}
+
+
+.itemRoupa:hover .buyLink,
+.buyLink:hover {
+  opacity: 1;
+  transform: translateY(0);
+  background-color: var(--roxo-escuro) !important; 
+}
+
+
+.itemRoupa:hover::after {
+  height: 60%; 
+}
+
+/* Garante que o container da imagem não cubra o link */
+.imageContainer {
+  z-index: 1;
+  pointer-events: none; 
+}
+
+.buyLink {
+  pointer-events: auto;
+}
+
+.buyLink.inativo {
+  background-color: var(--cinza-medio);
+  cursor: default;
+}
+
+/* Overlay Sutil */
 .itemRoupa::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 70%;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0) 60%,
-    rgba(255, 255, 255, 0.9) 100%
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 100%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .itemRoupa:hover::after {
   opacity: 1;
 }
 
+/* Alerta de Chuva */
+.alertaChuva {
+  background-color: var(--branco);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.conteudoAlerta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.alertaChuvaTexto {
+  font-weight: 600;
+  color: var(--cinza-escuro);
+  font-size: 0.95rem;
+}
+
 /* Responsividade */
 @media (max-width: 1024px) {
   .gridRoupas {
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-
-  .itemRoupa {
-      height: 280px;
-  }
-  .alertaChuva  {
-    height: 280px;
-}
 }
 
 @media (max-width: 768px) {
   .container {
-      padding: 2rem;
+    padding: 1.5rem;
   }
-
+  
   .gridRoupas {
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.2rem;
   }
-
-  .itemRoupa {
-      height: 240px;
-  }
-  .alertaChuva  {
-    height: 240px;
-}
+  
   .titulo {
-      font-size: 1.8rem;
-  }
-
-  .descricao {
-      font-size: 1.1rem;
+    font-size: 1.8rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .gridRoupas {
-      grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  
   }
-
-  .itemRoupa {
-      height: 200px;
+  
+  .imageContainer {
+    padding: 1rem;
   }
-  .alertaChuva  {
-    height: 200px;
-}
-  .imagemRoupa {
-      padding: 1rem;
+  
+  .buyLink {
+    font-size: 0.8rem;
+    padding: 0.6rem;
   }
 }

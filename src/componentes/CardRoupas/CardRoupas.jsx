@@ -2,6 +2,8 @@
 import React, { useContext } from 'react';
 import { AppContext } from "../../context/AppContext";
 import styles from './CardRoupas.module.css';
+import {LinksCompra} from "../../data/LinksCompra"; // Importe o arquivo de links
+
 // Importar todas as imagens necessárias para os looks
 // Masculino 
 // Academia - Frio
@@ -159,7 +161,7 @@ import LookFrio52 from '../../assets/looks/frio/femininas/shopping/bolsa_preta.p
 
 // Academia - Ameno
 import LookAmeno1 from '../../assets/looks/ameno/femininas/academia/saia_short.png';
-import LookAmeno2 from '../../assets/looks/ameno/femininas/academia/legging.png';
+import LookAmeno2 from '../../assets/looks/ameno/femininas/academia/regata_preta.png';
 import LookAmeno3 from '../../assets/looks/ameno/femininas/academia/tennis_esport.png';
 import LookAmeno4 from '../../assets/looks/ameno/femininas/academia/meia.png';
 import LookAmeno5 from '../../assets/looks/ameno/femininas/academia/fone.png';
@@ -788,59 +790,78 @@ const sugestoesDeRoupa = {
         }}
     };
     
-    
-
+   
 // Função para gerar recomendação com base nos parâmetros
 const gerarRecomendacao = (temperatura, lugar, tipoLook) => {
-    if (!temperatura || !lugar || !tipoLook) return null;
+  if (!temperatura || !lugar || !tipoLook) return null;
 
-    const faixa = classificarTemperatura(temperatura);
-    const dados = sugestoesDeRoupa[lugar]?.[tipoLook]?.[faixa];
+  const faixa = classificarTemperatura(temperatura);
+  const dados = sugestoesDeRoupa[lugar]?.[tipoLook]?.[faixa];
 
-    if (!dados) return null;
+  if (!dados) return null;
 
-    return dados;
+  return dados;
 };
-
 const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
-    const { dadosClima } = useContext(AppContext);
-    const temChuva = dadosClima?.temChuva;
+  const { dadosClima } = useContext(AppContext);
+  const temChuva = dadosClima?.temChuva;
 
-    const recomendacao = gerarRecomendacao(temperatura, lugar, tipoLook);
+  const recomendacao = gerarRecomendacao(temperatura, lugar, tipoLook);
 
-    if (!recomendacao) return null;
+  if (!recomendacao) return null;
 
-    return (
-        <div className={styles.container}>
-            <h3 className={styles.titulo}>Recomendações de Look:</h3>
-            <p className={styles.descricao}>{recomendacao.texto}</p>
-            <div className={styles.gridRoupas}>
-                {recomendacao.imagens.map((img, index) => (
-                    <div key={index} className={styles.itemRoupa}>
-                        <img
-                            src={img}
-                            alt={`Peça de roupa ${index + 1}`}
-                            className={styles.imagemRoupa}
-                        />
-                    </div>
-                ))}
+   return (
+    <div className={styles.container}>
+      <h3 className={styles.titulo}>Recomendações de Look:</h3>
+      <p className={styles.descricao}>{recomendacao.texto}</p>
+      
+      <div className={styles.gridRoupas}>
+   {recomendacao.imagens.map((img, index) => {
+  const linkCompra = LinksCompra[img]; // usa o caminho completo como chave
 
-                {temChuva && (
-                <div className={`${styles.itemRoupa} ${styles.alertaChuva}`}>
-                    <div className={styles.conteudoAlerta}>
-                    <img
-                        src={guarda_chuva}
-                        alt="Guarda-chuva"
-                        className={styles.imagemRoupa}
-                    />
-                    <p className={styles.alertaChuvaTexto}>Não esqueça o guarda-chuva!</p>
-                    </div>
-                </div>
+  return (
+    <div key={index} className={styles.itemRoupa}>
+      <div className={styles.imageContainer}>
+        <img
+          src={img}
+          alt={`Peça de roupa ${index + 1}`}
+          className={styles.imagemRoupa}
+        />
+
+        {linkCompra ? (
+          <a
+            href={linkCompra}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.buyLink}
+          >
+                    Clique para ver onde comprar
+                  </a>
+                ) : (
+                  <div className={`${styles.buyLink} ${styles.inativo}`}>
+                    Sem link de compra
+                  </div>
                 )}
+              </div>
             </div>
+          );
+        })}
 
-        </div>
-    );
+        {temChuva && (
+          <div className={`${styles.itemRoupa} ${styles.alertaChuva}`}>
+            <div className={styles.conteudoAlerta}>
+              <img
+                src={guarda_chuva}
+                alt="Guarda-chuva"
+                className={styles.imagemRoupa}
+              />
+              <p className={styles.alertaChuvaTexto}>Não esqueça o guarda-chuva!</p>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export { CardRoupas };
