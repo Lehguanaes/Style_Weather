@@ -70,6 +70,13 @@ const FiltroLugar = () => {
         setMenuAberto(isOpen); // Atualiza o estado do menu
     };
 
+    // Salva o lugar selecionado no localStorage sempre que ele mudar
+    useEffect(() => {
+        if (lugarSelecionado) {
+            localStorage.setItem("lugarSelecionado", lugarSelecionado);
+        }
+    }, [lugarSelecionado]);
+
     return (
         <div className={`${styles.filtroLugar} ${menuAberto ? styles.menuAberto : ""}`}>
             <label className={styles.filtroLabel}><strong>Escolha o local:</strong></label>

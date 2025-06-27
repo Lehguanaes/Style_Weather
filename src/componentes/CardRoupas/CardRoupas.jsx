@@ -827,7 +827,9 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     // tirar o sufixo que o vercel gera
     filename = filename.replace(/-\w+(?=\.\w+$)/, "");
 
-    const chave = `academia/${filename}`;
+    const lugarSelecionado = localStorage.getItem('lugarSelecionado');
+    const chave = `${lugarSelecionado}/${filename}`;
+
     
     const linkCompra = LinksCompra[chave];
     // console.log("antes1");
