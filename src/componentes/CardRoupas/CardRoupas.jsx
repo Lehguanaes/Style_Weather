@@ -817,14 +817,13 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
       
 <div className={styles.gridRoupas}>
   {recomendacao.imagens.map((img, index) => {
-    // Extrai o caminho relativo de forma mais robusta
+    // Extrai a pasta pai e o nome do arquivo
     const pathParts = img.split('/');
-    const assetsIndex = pathParts.indexOf('assets');
-    const relativePath = assetsIndex >= 0 
-      ? pathParts.slice(assetsIndex + 1).join('/')
-      : pathParts.slice(pathParts.indexOf('looks')).join('/');
+    const folder = pathParts[pathParts.length - 2]; // Pega a pasta pai
+    const filename = pathParts[pathParts.length - 1]; // Pega o nome do arquivo
+    const chave = `${folder}/${filename}`;
     
-    const linkCompra = LinksCompra[relativePath];
+    const linkCompra = LinksCompra[chave];
 
     return (
       <div key={index} className={styles.itemRoupa}>
