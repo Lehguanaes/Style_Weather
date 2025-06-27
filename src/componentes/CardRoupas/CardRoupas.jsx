@@ -829,6 +829,7 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
 
     const lugarSelecionado = localStorage.getItem('lugarSelecionado');
     const chave = `${lugarSelecionado}/${filename}`;
+    console.log("chave:", chave);
 
     
     const linkCompra = LinksCompra[chave];
