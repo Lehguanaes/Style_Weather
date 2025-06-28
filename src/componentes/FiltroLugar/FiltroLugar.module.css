@@ -1,129 +1,72 @@
-.filtroLugar {
-    display: flex;
-    flex-direction: column; /* Organiza os elementos na coluna */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    width: 100%;
-    margin: 20px auto; /* Centraliza horizontalmente */
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.97);
-    border-radius: 14px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    vertical-align: top;
-    text-align: center; /* Garante que o texto dentro de cada item fique centralizado */
-    transition: all 0.3s ease;
-    max-width: 500px; /* Definido para ser responsivo */
-    position: static; /* Removido o position relative */
-}
-
-.filtroLugar:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.filtroLugar label {
-    display: block;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--cinza-escuro);
-    font-family: 'Poppins', sans-serif;
-    text-align: left;
-}
 .filtroLabel {
     display: block;
-    margin-bottom: 0.85rem;
-    font-size: 0.95rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--cinza-escuro);
     font-family: 'Poppins', sans-serif;
     letter-spacing: -0.1px;
     position: relative;
+    text-align: center;
 }
 .filtroLabel::after {
     content: '';
     position: absolute;
-    width: 100%;
+    width: 12%;
     height: 3px;
-    bottom: -4px;
-    left: 0;
+    bottom: -6px;
+    left: 50%;  /* Muda aqui */
     background: linear-gradient(90deg, var(--roxo-base), var(--roxo-claro));
     border-radius: 4px;
-    transform: scaleX(0.9);
+    transform: translateX(-50%) scaleX(0.9); /* Ajusta o translateX para centralizar */
     transform-origin: center;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     opacity: 0.8;
 }
-/* Estilo do select sem alteração do z-index */
-.selectContainer {
-    width: 100%; /* Garante que o select ocupe toda a largura disponível */
-    position: relative; /* Garante que o z-index do select funcione */
-    z-index: 2; /* Coloca o select acima do ícone */
-}
 
-.selectContainer :global(.select__control) {
-    min-height: 48px;
-    border-radius: 10px;
-    border: 1px solid var(--cinza-escuro);
-    font-size: 0.95rem;
-    background-color: var(--branco);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* Container dos botões para o local */
+.botoesLugarContainer {
     display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Alinha o conteúdo ao início */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
 }
 
-.selectContainer :global(.select__single-value) {
-    align-self: flex-start;
-    margin-top: auto;
-    margin-bottom: auto;
-    text-align: left;
-    width: 100%;
-}
-
-.selectContainer :global(.select__control--is-focused) {
-    border-color: var(--roxo-base);
-    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15), 0 6px 20px rgba(108, 92, 231, 0.1);
-    border-radius: 10px; /* Suaviza o foco */
-}
-
-.selectContainer :global(.select__menu) {
-    border-radius: 10px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+/* Botão padrão dos lugares */
+.botaoLugar {
     background-color: var(--branco);
-    animation: fadeIn 0.25s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.selectContainer :global(.select__option--is-selected) {
-    background: linear-gradient(135deg, var(--roxo-base), var(--roxo-claro));
-}
-
-.selectContainer :global(.select__dropdown-indicator) {
-    color: var(--roxo-base);
-    padding: 6px;
-}
-
-.selectContainer :global(.select__placeholder) {
-    text-align: left;
-    width: 100%;
+    border: 1.5px solid var(--cinza-escuro);
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 110px;
+    text-align: center;
+    user-select: none;
+    font-family: 'Poppins', sans-serif;
     color: var(--cinza-escuro);
-    font-size: 0.95rem;
-    align-self: flex-start;
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
+/* Hover do botão para dar destaque */
+.botaoLugar:hover {
+    background-color: var(--cinza-claro);
+    border-color: var(--roxo-base);
+    color: var(--roxo-base);
+}
+
+/* Botão quando está selecionado */
+.botaoSelecionado {
+    background: linear-gradient(135deg, var(--roxo-base), var(--roxo-claro));
+    border-color: var(--roxo-claro);
+    color: white;
+    font-weight: 700;
+}
+
+/* Manter botão Escolher look já existente */
 .btnEscolherLook {
     margin-top: 1.5rem;
     padding: 12px 24px;
@@ -139,17 +82,4 @@
 
 .btnEscolherLook:hover {
     background-color: var(--roxo-claro);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .filtroLugar {
-        width: 90%;
-        max-width: 500px;
-        margin: 20px auto;
-    }
-
-    .selectContainer :global(.select__control) {
-        width: 100%; 
-    }
 }

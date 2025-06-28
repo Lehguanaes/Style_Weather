@@ -1,131 +1,193 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
 
 .filtroContainer {
-    display: flex;
-    flex-direction: column; /* Organiza os elementos na coluna */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    width: 100%;
-    margin: 50px auto 20px auto; /* Aumenta a margem superior para empurrar o filtro para baixo */
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.97);
-    border-radius: 14px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    vertical-align: top;
-    text-align: center; /* Garante que o texto dentro de cada item fique centralizado */
-    transition: all 0.3s ease;
-    max-width: 500px; /* Definido para ser responsivo */
-    position: static; /* Removido o position relative */
-    z-index: 9999; /* Garante que o filtro fique sobre os outros elementos */
-    position: relative; /* Permite que o z-index funcione corretamente */
-}
-
-.filtroContainer:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 50px auto 20px auto;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  max-width: 500px;
+  position: relative;
+  z-index: 9999;
 }
 
 .filtroLabel {
-    display: block;
-    margin-bottom: 0.85rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--cinza-escuro);
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: -0.1px;
-    position: relative;
+  display: block;
+  margin-bottom: 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cinza-escuro);
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.1px;
+  position: relative;
 }
 
 .filtroLabel::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: -4px;
-    left: 0;
-    background: linear-gradient(90deg, var(--roxo-base), var(--roxo-claro));
-    border-radius: 4px;
-    transform: scaleX(0.9);
-    transform-origin: center;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    opacity: 0.8;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, var(--roxo-base), var(--roxo-claro));
+  border-radius: 4px;
+  transform: scaleX(0.9);
+  transform-origin: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0.8;
 }
-/* Estilo do select sem alteração do z-index */
+
 .selectContainer {
-    width: 100%; /* Garante que o select ocupe toda a largura disponível */
+  width: 100%;
 }
+
 .selectContainer :global(.select__control) {
-    min-height: 48px;
-    border-radius: 10px;
-    border: 1px solid var(--cinza-escuro);
-    font-size: 0.95rem;
-    background-color: var(--branco);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Alinha o conteúdo ao início */
-    z-index: 1; /* Garantir que o select fique abaixo do filtro */
+  min-height: 48px;
+  border-radius: 10px;
+  border: 1px solid var(--cinza-escuro);
+  font-size: 0.95rem;
+  background-color: var(--branco);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 1;
 }
 
 .selectContainer :global(.select__single-value) {
-    align-self: flex-start;
-    margin-top: auto;
-    margin-bottom: auto;
-    text-align: left; /* Garante o alinhamento do texto */
-    width: 100%;
+  align-self: flex-start;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: left;
+  width: 100%;
 }
 
 .selectContainer :global(.select__control--is-focused) {
-    border-color: var(--roxo-base);
-    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15), 0 6px 20px rgba(108, 92, 231, 0.1);
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15), 0 6px 20px rgba(108, 92, 231, 0.1);
 }
 
 .selectContainer :global(.select__menu) {
-    border-radius: 10px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    background-color: var(--branco);
-    animation: fadeIn 0.25s ease-out;
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  background-color: var(--branco);
+  animation: fadeIn 0.25s ease-out;
+
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .selectContainer :global(.select__option--is-selected) {
-    background: linear-gradient(135deg, var(--roxo-base), var(--roxo-claro));
+  background: linear-gradient(135deg, var(--roxo-base), var(--roxo-claro));
 }
 
 .selectContainer :global(.select__dropdown-indicator) {
-    color: var(--roxo-base);
-    padding: 6px;
+  color: var(--roxo-base);
+  padding: 6px;
 }
 
 .selectContainer :global(.select__placeholder) {
-    text-align: left;
-    width: 100%;
-    color: var(--cinza-escuro);
-    font-size: 0.95rem;
-    align-self: flex-start;
-    margin-top: auto;
-    margin-bottom: auto;
+  text-align: left;
+  width: 100%;
+  color: var(--cinza-escuro);
+  font-size: 0.95rem;
+  align-self: flex-start;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .filtroContainer {
-        width: 90%;
-        max-width: 500px;
-        margin: 50px auto 20px auto; 
-    }
+/* --- Estilo compacto para filtro dentro da navbar --- */
+.filtroContainerNavbar {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 38px;
+  border-radius: 20px;
+  padding: 0 0.6rem;
+  box-shadow: none;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  transition: all 0.3s ease;
+  top: 10px
+}
 
-    .selectContainer :global(.select__control) {
-        width: 100%; /* Torna o select responsivo */
-    }
+.filtroContainerNavbar .filtroLabel {
+  display: none;
+}
+
+.filtroContainerNavbar .selectContainer {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.filtroContainerNavbar .selectContainer :global(.select__control) {
+  min-height: 38px !important;
+  border-radius: 20px !important;
+  border: 1.5px solid var(--roxo-base) !important;
+  font-size: 0.9rem !important;
+  background-color: var(--branco) !important;
+  box-shadow: none !important;
+  padding-right: 30px !important; /* espaço pra ícone */
+}
+
+.filtroContainerNavbar .selectContainer :global(.select__single-value),
+.filtroContainerNavbar .selectContainer :global(.select__placeholder) {
+  line-height: 1.2;
+  padding-left: 6px;
+}
+
+.filtroContainerNavbar .selectContainer :global(.select__control--is-focused) {
+  border-color: var(--roxo-base) !important;
+  box-shadow: 0 0 6px var(--roxo-base) !important;
+}
+
+/* Container do filtro com ícone na navbar */
+.searchCityContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 38px;
+  width: 220px;
+  margin-left: 1rem;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 8px;
+  pointer-events: none;
+  user-select: none;
+  color: var(--roxo-base);
+  font-size: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsividade para filtro normal */
+@media (max-width: 768px) {
+  .filtroContainer {
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto 20px auto;
+  }
+
+  .selectContainer :global(.select__control) {
+    width: 100%;
+  }
 }

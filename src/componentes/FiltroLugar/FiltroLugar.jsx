@@ -1,11 +1,21 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { buscarClimaPorCidade } from "../../services/weatherApi";
 import { useNavigate } from "react-router-dom";
 import styles from "./FiltroLugar.module.css";
 import { CardClima } from "../CardClima/CardClima";
-import { SweetAlert } from "../SweetAlert"; 
-import Select from "react-select";
+import { SweetAlert } from "../SweetAlert";
+
+const opcoesLugar = [
+    { value: "academia", label: "Academia" },
+    { value: "balada", label: "Balada" },
+    { value: "escola", label: "Escola" },
+    { value: "parque", label: "Parque" },
+    { value: "praia", label: "Praia" },
+    { value: "restaurante", label: "Restaurante" },
+    { value: "shopping", label: "Shopping" },
+    { value: "trabalho", label: "Trabalho" }
+];
 
 const FiltroLugar = () => {
     const {
@@ -18,8 +28,6 @@ const FiltroLugar = () => {
     } = useContext(AppContext);
 
     const [mostrarCards, setMostrarCards] = useState(false);
-    const [menuAberto, setMenuAberto] = useState(false); // Estado para controlar se o menu está aberto
-    const isReadyToFetch = cidadeSelecionada && lugarSelecionado;
     const navigate = useNavigate();
 
     const handleEscolherLook = () => {
@@ -27,11 +35,16 @@ const FiltroLugar = () => {
         navigate("/cadastrar");
     };
 
-    const handleButtonClick = async () => {
+    // Agora, busca o clima e atualiza tudo assim que o estilo mudar
+    const handleLugarClick = async (value) => {
         if (!usuarioLogado) {
             handleEscolherLook();
             return;
         }
+
+        setLugarSelecionado(value);
+
+        if (!cidadeSelecionada) return;
 
         setMostrarCards(false);
 
@@ -54,54 +67,23 @@ const FiltroLugar = () => {
         }
     };
 
-    const opcoesLugar = [
-        { value: "academia", label: "Academia" },
-        { value: "balada", label: "Balada" },
-        { value: "escola", label: "Escola" },
-        { value: "parque", label: "Parque" },
-        { value: "praia", label: "Praia" },
-        { value: "restaurante", label: "Restaurante" },
-        { value: "shopping", label: "Shopping" },
-        { value: "trabalho", label: "Trabalho" }
-    ];
-
-    // Função para gerenciar a mudança de abertura do menu
-    const handleMenuChange = (isOpen) => {
-        setMenuAberto(isOpen); // Atualiza o estado do menu
-    };
-
-    // Salva o lugar selecionado no localStorage sempre que ele mudar
-    useEffect(() => {
-        if (lugarSelecionado) {
-            localStorage.setItem("lugarSelecionado", lugarSelecionado);
-        }
-    }, [lugarSelecionado]);
-
     return (
-        <div className={`${styles.filtroLugar} ${menuAberto ? styles.menuAberto : ""}`}>
+        <div className={styles.filtroLugar}>
             <label className={styles.filtroLabel}><strong>Escolha o local:</strong></label>
 
-            <div className={styles.selectContainer}>
-                <Select
-                    id="lugar"
-                    options={opcoesLugar}
-                    value={opcoesLugar.find(opt => opt.value === lugarSelecionado)}
-                    onChange={(selectedOption) => setLugarSelecionado(selectedOption?.value)}
-                    placeholder="Selecione o local"
-                    classNamePrefix="select"
-                    onMenuOpen={() => handleMenuChange(true)} // Quando o menu abrir
-                    onMenuClose={() => handleMenuChange(false)} // Quando o menu fechar
-                />
+            <div className={styles.botoesLugarContainer}>
+                {opcoesLugar.map(({ value, label }) => (
+                    <button
+                        key={value}
+                        className={`${styles.botaoLugar} ${lugarSelecionado === value ? styles.botaoSelecionado : ''}`}
+                        onClick={() => handleLugarClick(value)}
+                    >
+                        {label}
+                    </button>
+                ))}
             </div>
 
-            {isReadyToFetch && (
-                <button
-                    onClick={handleButtonClick}
-                    className={styles.btnEscolherLook}
-                >
-                    Escolher look
-                </button>
-            )}
+            {/* Removi o botão "Escolher look" */}
 
             {mostrarCards && dadosClima && (
                 <div className={styles.cardsContainer}>

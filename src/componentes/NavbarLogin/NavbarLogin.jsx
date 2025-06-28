@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X } from 'react-feather';
+import { Search } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAppContext } from "../../hooks/useAppContext";
@@ -7,12 +7,14 @@ import styles from "./NavbarLogin.module.css";
 import homeIcon from "../../assets/icones/inicial.png";
 import helpImg from '../../assets/icones/help.png';
 
+import { FiltroCidade } from "../../componentes/FiltroCidade/FiltroCidade";
+
 const NavbarLogin = () => {
   const {
     logo,
-    setUsuarioLogado, // Pegando o setUsuarioLogado do contexto
-    profileImage
-  } = useAppContext();  // Garantindo o uso do contexto
+    setUsuarioLogado,
+    profileImage,
+  } = useAppContext();
 
   const navigate = useNavigate();
   const [isUserMenuOpen, setUserMenuOpen] = useState(false);
@@ -38,10 +40,10 @@ const NavbarLogin = () => {
   const handleLogout = async () => {
     const auth = getAuth();
     try {
-      await signOut(auth);  // Fazendo o logout do Firebase
-      localStorage.removeItem("userId");  // Removendo o ID do usuário do localStorage
-      setUsuarioLogado(false);  // Alterando o estado de login via contexto
-      navigate('/');  // Redirecionando para a página inicial
+      await signOut(auth);
+      localStorage.removeItem("userId");
+      setUsuarioLogado(false);
+      navigate('/');
     } catch (error) {
       console.error("Erro ao sair:", error.message);
       alert("Erro ao sair. Tente novamente.");
@@ -58,8 +60,12 @@ const NavbarLogin = () => {
         title='Clique para voltar à página inicial'
       />
 
+      <div className={styles.searchCityContainer}>
+        <FiltroCidade isNavbar={true} />
+        <Search size={18} className={styles.searchIcon} />
+      </div>
+
       <div className={styles.rightSide}>
-        {/* Botão para Home */}
         <button
           className={styles.iconOnlyBtn}
           onClick={() => { navigate('/inicial'); window.location.reload(); }}
@@ -68,19 +74,17 @@ const NavbarLogin = () => {
           <img src={homeIcon} alt="Início" className={styles.icon} />
         </button>
 
-        {/* Botão para Sobre Nós */}
         <button
           className={styles.iconOnlyBtn}
-          onClick={() =>  navigate('/sobre-nos') }
+          onClick={() => navigate('/sobre-nos')}
           title='Sobre nós'
         >
           <img src={helpImg} alt="Sobre nós" className={styles.icon} />
         </button>
 
-        {/* Ícone do usuário */}
         <div className={styles.userSection} ref={menuRef}>
           <img
-            src={profileImage || usuario}
+            src={profileImage}
             alt="Perfil"
             className={styles.userIcon}
             onClick={handleUserMenuToggle}

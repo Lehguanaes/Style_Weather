@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const Inicial = () => {
   const {
-    cidadeSelecionada,
-    setCidadeSelecionada,
     lugarSelecionado,
     setLugarSelecionado,
     tipoLook,
@@ -30,7 +28,6 @@ const Inicial = () => {
 
   return (
     <div>
-      <FiltroCidade cidade={cidadeSelecionada} setCidade={setCidadeSelecionada} />
       <FiltroLugar lugar={lugarSelecionado} setLugar={setLugarSelecionado} />
 
       {dadosClima && lugarSelecionado && tipoLook && (
