@@ -49,12 +49,70 @@ const LinksCompraRaw = {
  'parque/jaqueta_jeansclara.png' : 'https://br.shein.com/Women-Denim-Jackets-Coats-p-30322758.html?src_identifier=st%3D2%60sc%3Djaqueta%20jeans%60sr%3D0%60ps%3D1&src_module=search&src_tab_page_id=page_search1751003590813&mallCode=2&pageListType=4&imgRatio=3-4&pageListType=4',
 
 
+
+
  //frio-feminino-academia
  'academia/blusa_preta.png' :  'https://br.shein.com/DAZY-Women-s-Solid-Color-Long-Raglan-Sleeve-T-Shirt-With-Zippered-Placket-p-30894837.html?mallCode=1&imgRatio=3-4',
  'academia/garrafa_agua.png' : 'https://www.madeiramadeira.com.br/garrafa-1l-com-canudo-com-marcador-de-agua-cinza-em-policabornato-lyor-700130616.html',
  'academia/fone.png' : 'https://www.mercadolivre.com.br/fone-de-ouvido-bluetooth-jbl-free-ii-in-ear-preto/p/MLB19223351?pdp_filters=item_id%3AMLB5405215606&from=gshop&matt_tool=14213447&matt_word=&matt_source=bing&matt_campaign=MLB_ML_BING_AO_CE-ALL-ALL_X_PLA_ALLB_TXS_ALL&matt_campaign_id=382858295&matt_ad_group=CE&matt_match_type=e&matt_network=o&matt_device=c&matt_keyword=default&msclkid=67a9ff6039411566c892973e0d5e78b2&utm_source=bing&utm_medium=cpc&utm_campaign=MLB_ML_BING_AO_CE-ALL-ALL_X_PLA_ALLB_TXS_ALL&utm_term=4581596253419723&utm_content=CE',
  'academia/leggin_preta.png' : 'https://produto.mercadolivre.com.br/MLB-5325436610-calca-legging-termica-lupo-sport-feminina-underwear-warm-_JM#polycard_client=recommendations_vip-v2p&reco_backend=recomm-platform_coldstart&reco_model=coldstart_high_exposition%2C+ranker_entity_v2_retrieval_system_vpp_v2p%2C+coldstart_low_exposition&reco_client=vip-v2p&reco_item_pos=0&reco_backend_type=low_level&reco_id=59e1193f-88bb-44d8-9f28-60c91ecec900',
  'academia/tenis_preto.png' :  'https://www.lojastorra.com.br/tenis-masculino-esportivo-adidas-run-72-preto-61241000677521/p?idsku=341259&utm_source=bing&utm_medium=cpc&utm_campaign=ic_bing_perf_conv_vend_aon_shopping_comp&msclkid=94824f952b5011bd062d27cb1fca73c7',
+
+
+
+
+//frio-feminino-balada
+'balada/jaqueta_branca.png': 'https://www.temu.com/br/casaco-de--com--para-mulher-tecido-de-malha-100-poli%C3%A9ster-cor---comprida--de-correr--de-outono-inverno-adorno-de--de--g-601099814778797.html?top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2Fd4d18a00-349e-4f33-89f4-15719bfa3990.jpg&spec_id=2001&spec_gallery_id=24768&spec_ids=2001&share_token=H3a1_DHGlVEU62entCSNVrD_aXtMsEV3flJF1OyHpNTuLfXNmXFpIVATCCUbmJYCNsgK2b_4-SZrAc-AsMEmmfrcTBkjfWEw-Fdva0kXsYZ8dnE63Qnfw1jAZCiI7gvZXCyIpos2OJ5p0ayLgES3v9&refer_page_el_sn=209279&_x_vst_scene=adg&_x_ads_channel=pinterest&_x_ads_creative_id=4260608960782&_x_ads_id=2680084087895&_x_ads_set=626754359961&_x_ads_sub_channel=shopping&_x_ns_catalog_id=1000033&_x_ns_creative=4260608960782&_x_ns_gid=601099814778797&_x_ns_product_id=17593421828877&_x_ns_prz_type=101&_x_bg_adid=16241793&_x_ads_account=549767572656&refer_page_name=kuiper&refer_page_id=14021_1751058320448_lsu20mqrn4&refer_page_sn=14021&_x_sessn_id=bqje7nftcx',
+'balada/jaqueta_roxa.png': 'https://br.pinterest.com/pin/328059154130218090/',
+'balada/calca_couro_preta.png': 'https://br.pinterest.com/pin/214061788538168561/',
+'balada/bota_longa_preta.png': 'https://www.zzmall.com.br/bota-wyatt-up-couro-preta/p/S2233500020001U',
+'balada/bolsa_preta.png': 'https://br.pinterest.com/pin/72550243991463659/',
+
+
+
+//frio-feminino-escola
+'escola/blusa_branca.png' : ' https://br.shein.com/SHEIN-PETITE-Jaqueta-com-Capuz-Minimalista-de-Bolso-com-Z%C3%ADper-Frontal-de-Manga-Longa-e-Cor-S%C3%B3lida,-Uso-Di%C3%A1rio-Casual,-Blusa-de-Manga-Longa-p-44174297.html?mallCode=2',
+'escola/bota_coturno_preta.png' : 'https://br.shein.com/Bota-Coturno-Feminino-Preto-Blogueira-Maravilhosa-Lan%C3%A7amento-Exclusivo-p-18702476.html?mallCode=2 ',
+'escola/calca_moletom_branco.png' : 'https://br.shein.com/SHEIN-EZwear-Cal%C3%A7a-de-Moletom-Branca-Casual-Larga-com-Cord%C3%A3o-na-Cintura,-Plus-Size-para-Mulheres-p-42728861.html?mallCode=1 ',
+
+
+
+//frio-feminino-parque
+'parque/blusa_roxa.png' : ' https://br.pinterest.com/pin/268316090291361721/',
+'parque/calca_termica_preta.png' : 'https://produto.mercadolivre.com.br/MLB-1585522134-kit-2-calca-legging-flanelada-termica-antifrio-tecido-suplex-_JM?matt_tool=59082313&matt_word=&matt_source=bing&matt_campaign=MLB_ML_BING_AO_APP%20%26%20SPORTS-ALL-ALL_X_PLA_ALLB_TXS_ALL&matt_campaign_id=382858293&matt_ad_group=APP%20%26%20SPORTS&matt_match_type=e&matt_network=o&matt_device=c&matt_keyword=default&msclkid=e75b6e8a9767197163df06d5c0973373&utm_source=bing&utm_medium=cpc&utm_campaign=MLB_ML_BING_AO_APP%20%26%20SPORTS-ALL-ALL_X_PLA_ALLB_TXS_ALL&utm_term=4581252654962580&utm_content=APP%20%26%20SPORTS ',
+'parque/tenis_preto.png' : 'https://www.lojastorra.com.br/tenis-masculino-esportivo-adidas-run-72-preto-61241000677521/p?idsku=341259&utm_source=bing&utm_medium=cpc&utm_campaign=ic_bing_perf_conv_vend_aon_shopping_comp&msclkid=94824f952b5011bd062d27cb1fca73c7 ',
+
+
+
+//frio-feminino-praia
+'praia/mergulho_preta.png' : ' https://produto.mercadolivre.com.br/MLB-5432430170-a-fatos-de-mergulho-masculinos-completos-de-mergulho-surf-_JM#polycard_client=recommendations_vip-v2p&reco_backend=recomm-platform_coldstart&reco_model=ranker_entity_v2_retrieval_system_vpp_v2p%2C+coldstart_low_exposition%2C+coldstart_high_exposition&reco_client=vip-v2p&reco_item_pos=2&reco_backend_type=low_level&reco_id=73a74dda-3137-4bf8-95e3-f51faa102631',
+'praia/canga_preta_branca.png' : ' https://www.enjoei.com.br/p/canga-preta-e-branca-64222007?vid=41bbb6c6-31cb-4c9a-9152-801ca69eae0c',
+'praia/toalha_branca.png' : ' https://www.mercadolivre.com.br/kit-conjunto-de-toalhas-para-hotel-banho-luxo-grossa-branca-cor-branco-simples/p/MLB43768970?pdp_filters=item_id%3AMLB3917262863&from=gshop&matt_tool=92309335&matt_word=&matt_source=bing&matt_campaign=MLB_ML_BING_AO_HOME%20%26%20INDUSTRY-ALL-ALL_X_PLA_ALLB_TXS_ALL&matt_campaign_id=382858298&matt_ad_group=HOME%20%26%20INDUSTRY&matt_match_type=e&matt_network=o&matt_device=c&matt_keyword=default&msclkid=500b783b3ebf1998cf6b106467828c35&utm_source=bing&utm_medium=cpc&utm_campaign=MLB_ML_BING_AO_HOME%20%26%20INDUSTRY-ALL-ALL_X_PLA_ALLB_TXS_ALL&utm_term=4581252658057055&utm_content=HOME%20%26%20INDUSTRY',
+
+
+//frio-feminino-restaurante
+'restaurante/blusa_preta.png' : 'https://br.pinterest.com/pin/396387204980869957/ ',
+'restaurante/bota_ugg_preta.png' : 'https://www.amazon.com.br/feminina-Mukluk-Revival-UGG-Preto/dp/B07NCBDSLH/ref=sr_1_1_sspa?adgrpid=1139095747806914&dib=eyJ2IjoiMSJ9.OkUzxxz1dESewkvqvoFKTRXH1-6RAakTuztVKAkFmdgAqmS6Ua0lipflo7eFm7TUg8rtJ8F3LXEtYvzsizQyXgSxht9RHe24VW2I-SSo0NVOqJolaXZtXXSvU0TdPcHvM4awy_1qT-X-ifXYlVvqGBW2SbixXNrH0yJgJv1EhDCv7C3HHDF1DMLI2Mrj6c8-BdDbBpvUpXEVolGEnoysHwb_mxzke-rGyeaOkDrmlzgvaKIk8ix_obytKt0O5K0zaAA6EuMNI5jFRYnRtR9AElGoQcykU4BId6oL9AR0Ki4.puwx7WPWnkCi4IYz_W6cQ--JCcqulTzZrE_wuCUR3Ns&dib_tag=se&hvadid=71193637662811&hvbmt=be&hvdev=c&hvlocphy=116068&hvnetw=o&hvqmt=e&hvtargid=kwd-71194177559072%3Aloc-20&hydadcr=13690_13435604&keywords=bota+feminina+ugg&mcid=55a9ae1a981b3f50bda0d40218506990&qid=1751080054&sr=8-1-spons&ufe=app_do%3Aamzn1.fos.a492fd4a-f54d-4e8d-8c31-35e0a04ce61e&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1 ',
+'restaurante/calca_wide_branca.png' : 'https://www.magazineluiza.com.br/calca-jeans-wide-leg-branca-sly/p/jkjkc7jae6/md/otmd/?utm_source=bing&utm_medium=cpc&utm_campaign=bing_eco_per_ven_sho_all_sor_3p_all-products-std&partner_id=77025&utm_term=77025&gclid=eae1e65c678d1edf4f928e033ca3cfe8&gclsrc=3p.ds&msclkid=eae1e65c678d1edf4f928e033ca3cfe8 ',
+'restaurante/jaquetaPuffer_preta.png' : 'https://br.shein.com/Jaqueta-Puffer-Feminina-Forrada-couro-sint%C3%A9tico-p-60631014.html?mallCode=2 ',
+
+
+//frio-feminino-shopping
+'shopping/blusa_la_preta.png' : ' https://br.shein.com/SHEIN-EZwear-Raglan-Sleeve-Drawstring-Hoodie-p-11507168.html?src_identifier=st%3D2%60sc%3Dmoletom%20cropped%20preto%60sr%3D0%60ps%3D1&src_module=search&src_tab_page_id=page_search1751080266324&mallCode=1&pageListType=4&imgRatio=3-4&pageListType=4',
+'shopping/blusa_croche_branca.png' : 'https://br.shein.com/SHEIN-Moletom-Cropped-Relaxado-com-Textura-Acolchoada-e-Tric%C3%B4-Branco-para-Adolescentes-p-39464392.html?mallCode=1 ',
+'shopping/bolsa_preta.png' : ' https://br.shein.com/SHEIN-EZwear-Raglan-Sleeve-Drawstring-Hoodie-p-11507168.html?src_identifier=st%3D2%60sc%3Dmoletom%20cropped%20preto%60sr%3D0%60ps%3D1&src_module=search&src_tab_page_id=page_search1751080266324&mallCode=1&pageListType=4&imgRatio=3-4&pageListType=4',
+'shopping/bota_ugg_preta.png' : 'https://www.amazon.com.br/feminina-Mukluk-Revival-UGG-Preto/dp/B07NCBDSLH/ref=sr_1_1_sspa?adgrpid=1139095747806914&dib=eyJ2IjoiMSJ9.OkUzxxz1dESewkvqvoFKTRXH1-6RAakTuztVKAkFmdgAqmS6Ua0lipflo7eFm7TUg8rtJ8F3LXEtYvzsizQyXgSxht9RHe24VW2I-SSo0NVOqJolaXZtXXSvU0TdPcHvM4awy_1qT-X-ifXYlVvqGBW2SbixXNrH0yJgJv1EhDCv7C3HHDF1DMLI2Mrj6c8-BdDbBpvUpXEVolGEnoysHwb_mxzke-rGyeaOkDrmlzgvaKIk8ix_obytKt0O5K0zaAA6EuMNI5jFRYnRtR9AElGoQcykU4BId6oL9AR0Ki4.puwx7WPWnkCi4IYz_W6cQ--JCcqulTzZrE_wuCUR3Ns&dib_tag=se&hvadid=71193637662811&hvbmt=be&hvdev=c&hvlocphy=116068&hvnetw=o&hvqmt=e&hvtargid=kwd-71194177559072%3Aloc-20&hydadcr=13690_13435604&keywords=bota+feminina+ugg&mcid=55a9ae1a981b3f50bda0d40218506990&qid=1751080054&sr=8-1-spons&ufe=app_do%3Aamzn1.fos.a492fd4a-f54d-4e8d-8c31-35e0a04ce61e&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1 ',
+'shopping/calca_pantalona_roxa.png' : 'https://br.shein.com/Women-Pants-p-12509536.html?src_identifier=st%3D2%60sc%3Dcal%C3%A7a%20pantalona%20roxa%60sr%3D0%60ps%3D1&src_module=search&src_tab_page_id=page_goods_detail1751080302335&mallCode=2&pageListType=4&imgRatio=3-4&pageListType=4',
+
+
+//frio-feminino-trabalho
+'trabalho/blusa_social.png' : 'https://br.shein.com/dress-company-Blusa-Gola-Alta-Manga-Longa-T%C3%A9rmica-Gola-Alta-Forrada-Preta-Simples-Tecido-Malhado-blusa-inverno-outono-p-96566397.html?mallCode=2 ', 
+'trabalho/bota_ugg_preta.png' : 'https://www.amazon.com.br/feminina-Mukluk-Revival-UGG-Preto/dp/B07NCBDSLH/ref=sr_1_1_sspa?adgrpid=1139095747806914&dib=eyJ2IjoiMSJ9.OkUzxxz1dESewkvqvoFKTRXH1-6RAakTuztVKAkFmdgAqmS6Ua0lipflo7eFm7TUg8rtJ8F3LXEtYvzsizQyXgSxht9RHe24VW2I-SSo0NVOqJolaXZtXXSvU0TdPcHvM4awy_1qT-X-ifXYlVvqGBW2SbixXNrH0yJgJv1EhDCv7C3HHDF1DMLI2Mrj6c8-BdDbBpvUpXEVolGEnoysHwb_mxzke-rGyeaOkDrmlzgvaKIk8ix_obytKt0O5K0zaAA6EuMNI5jFRYnRtR9AElGoQcykU4BId6oL9AR0Ki4.puwx7WPWnkCi4IYz_W6cQ--JCcqulTzZrE_wuCUR3Ns&dib_tag=se&hvadid=71193637662811&hvbmt=be&hvdev=c&hvlocphy=116068&hvnetw=o&hvqmt=e&hvtargid=kwd-71194177559072%3Aloc-20&hydadcr=13690_13435604&keywords=bota+feminina+ugg&mcid=55a9ae1a981b3f50bda0d40218506990&qid=1751080054&sr=8-1-spons&ufe=app_do%3Aamzn1.fos.a492fd4a-f54d-4e8d-8c31-35e0a04ce61e&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1  ',
+'trabalho/calca_social.png' : ' https://produto.mercadolivre.com.br/MLB-3383839073-calca-preta-flare-feminina-social-k2b-original-cbolso-_JM?matt_tool=59082313&matt_word=&matt_source=bing&matt_campaign=MLB_ML_BING_AO_APP%20%26%20SPORTS-ALL-ALL_X_PLA_ALLB_TXS_ALL&matt_campaign_id=382858293&matt_ad_group=APP%20%26%20SPORTS&matt_match_type=e&matt_network=o&matt_device=c&matt_keyword=default&msclkid=4fce04495a141d3bc5616c16046b97ac&utm_source=bing&utm_medium=cpc&utm_campaign=MLB_ML_BING_AO_APP%20%26%20SPORTS-ALL-ALL_X_PLA_ALLB_TXS_ALL&utm_term=4581252654962581&utm_content=APP%20%26%20SPORTS', 
+'trabalho/cinto.png' : ' https://br.shein.com/Cinto-Plus-Size-Redondo-Preto-com-Dourado-p-15071197.html?mallCode=2', 
+'trabalho/colar.png' : ' https://www.mercadolivre.com.br/colar-choker-fita-lisa-malha-tendncia-folheado-a-ouro-18k-cor-dourado/p/MLB25356064#polycard_client=search-nordic&searchVariation=MLB25356064&wid=MLB3846260918&position=2&search_layout=grid&type=product&tracking_id=e16a0c74-f461-4ec9-8568-dd10fb47a516&sid=search', 
+
+
 
  //calor-feminino-academia
  'academia/blusa_branca.png' : 'https://br.shein.com/SHEIN-BASICS-4pcs-Set-Casual-Solid-Color-Knitted-Crew-Neck-Short-Sleeve-Fitted-Basic-Crop-Top-Tee-Shirts-For-Women-p-53730467.html?src_identifier=st%3D2%60sc%3Dcropped%20branco%60sr%3D0%60ps%3D1&src_module=search&src_tab_page_id=page_goods_detail1751003866544&mallCode=1&pageListType=4&imgRatio=3-4&pageListType=4',

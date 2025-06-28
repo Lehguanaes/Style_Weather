@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../context/AppContext";
 import { buscarClimaPorCidade } from "../../services/weatherApi";
 import { useNavigate } from "react-router-dom";
@@ -30,12 +30,17 @@ const FiltroLugar = () => {
     const [mostrarCards, setMostrarCards] = useState(false);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (lugarSelecionado) {
+            localStorage.setItem("lugarSelecionado", lugarSelecionado);
+        }
+    }, [lugarSelecionado]);
+
     const handleEscolherLook = () => {
         SweetAlert.error("Você não tem um cadastro no site! Por favor, cadastre-se.");
         navigate("/cadastrar");
     };
 
-    // Agora, busca o clima e atualiza tudo assim que o estilo mudar
     const handleLugarClick = async (value) => {
         if (!usuarioLogado) {
             handleEscolherLook();
@@ -70,7 +75,6 @@ const FiltroLugar = () => {
     return (
         <div className={styles.filtroLugar}>
             <label className={styles.filtroLabel}><strong>Escolha o local:</strong></label>
-
             <div className={styles.botoesLugarContainer}>
                 {opcoesLugar.map(({ value, label }) => (
                     <button
@@ -82,8 +86,6 @@ const FiltroLugar = () => {
                     </button>
                 ))}
             </div>
-
-            {/* Removi o botão "Escolher look" */}
 
             {mostrarCards && dadosClima && (
                 <div className={styles.cardsContainer}>

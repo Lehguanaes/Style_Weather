@@ -818,7 +818,6 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
 <div className={styles.gridRoupas}>
   {recomendacao.imagens.map((img, index) => {
     // Extrai a pasta pai e o nome do arquivo
-    console.log("imagem:", img);
     const pathParts = img.split('/');
     const folder = pathParts[pathParts.length -5]; // Pega a pasta pai
     // console.log("folder:", folder)
