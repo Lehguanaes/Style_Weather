@@ -28,7 +28,7 @@ const Inicial = () => {
 
   return (
     <div>
-      <FiltroLugar lugar={lugarSelecionado} setLugar={setLugarSelecionado} />
+      <FiltroLugar/>
 
       {dadosClima && lugarSelecionado && tipoLook && (
         <CardRoupas

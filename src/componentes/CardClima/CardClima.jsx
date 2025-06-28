@@ -1,19 +1,14 @@
-// Componente para exibir as informações climáticas de uma cidade selecionada
 import React, { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import styles from "./CardClima.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faThermometerHalf,
-    faTemperatureLow,
-    faDroplet,
-    faWind,
-    faGaugeHigh,
-    faEye,
-    faCloud,
-    faGlobe,
     faTemperatureArrowUp,
-    faTemperatureArrowDown
+    faTemperatureArrowDown,
+    faDroplet,
+    faTemperatureLow,
+    faWind
 } from "@fortawesome/free-solid-svg-icons";
 
 const CardClima = () => {
@@ -22,15 +17,14 @@ const CardClima = () => {
     if (!dadosClima) return null;
 
     const {
-        name: nomeCidade,
+        name,
         weather,
         main,
         wind,
-        sys,
-        visibility,
-        clouds,
-        coord
     } = dadosClima;
+
+    // Retira o estado após o hífen (se existir)
+    const nomeCidade = name.split('-')[0];
 
     const clima = weather[0];
     const urlIcone = `${import.meta.env.VITE_OPENWEATHER_ICON_URL}${clima.icon}@2x.png`;
@@ -43,80 +37,44 @@ const CardClima = () => {
         );
     }
 
-    // Função para traduzir descrição
-    const traduzirDescricao = (descricao) => {
-        const traducoes = {
-            "clear sky": "céu limpo",
-            "few clouds": "poucas nuvens",
-            "scattered clouds": "nuvens dispersas",
-            "broken clouds": "nuvens quebradas",
-            "shower rain": "chuva leve",
-            "rain": "chuva",
-            "light rain": "chuva fraca",
-            "moderate rain": "chuva moderada",
-            "heavy intensity rain": "chuva forte",
-            "thunderstorm": "trovoada",
-            "snow": "neve",
-            "mist": "névoa",
-            "overcast clouds": "nublado",
-        };
-
-        return traducoes[descricao.toLowerCase()] || descricao;
+    const obterClasseClima = (tipo) => {
+        const tipoClima = tipo.toLowerCase();
+        if (tipoClima.includes("rain")) return styles.chuva;
+        if (tipoClima.includes("cloud")) return styles.nublado;
+        if (tipoClima.includes("clear")) return styles.ensolarado;
+        if (tipoClima.includes("snow")) return styles.neve;
+        if (tipoClima.includes("mist") || tipoClima.includes("fog")) return styles.neblina;
+        return styles.default;
     };
 
-    // Função para traduzir main
-    const traduzirMain = (main) => {
-        const traducoes = {
-            "Thunderstorm": "Trovoada",
-            "Drizzle": "Garoa",
-            "Rain": "Chuva",
-            "Snow": "Neve",
-            "Clear": "Céu limpo",
-            "Clouds": "Nuvens",
-            "Mist": "Névoa",
-            "Smoke": "Fumaça",
-            "Haze": "Neblina",
-            "Dust": "Poeira",
-            "Fog": "Nevoeiro",
-            "Sand": "Areia",
-            "Ash": "Cinzas",
-            "Squall": "Rajada",
-            "Tornado": "Tornado"
-        };
-        return traducoes[main] || main;
-    };
+    const classeClima = obterClasseClima(clima.main);
 
     return (
-        <div className={styles.cardClima}>
-            <div className={styles.topo}>
-                <div className={styles.tituloContainer}>
-                    <h2 className={styles.titulo}>{nomeCidade}</h2>
-                </div>
-
-                <div className={styles.iconeContainer}>
+        <div className={`${styles.cardClima} ${classeClima}`}>
+            <div className={styles.infoHorizontal}>
+                <div className={styles.iconeCidade}>
                     <img src={urlIcone} alt={clima.description} className={styles.icone} />
+                    
                 </div>
 
-                <div className={styles.descricaoContainer}>
-                    <h3>{traduzirMain(clima.main)}</h3>
-                    <p className={styles.descricao}>{traduzirDescricao(clima.description)}</p>
-                    <p className={styles.tempatual}><strong><FontAwesomeIcon icon={faThermometerHalf} style={{ color: "#9b7cbb" }} /> </strong> {main.temp}°C</p>
-                </div>
-            </div>
-
-            <div className={styles.dados}>
-                <p>
-                    <strong><FontAwesomeIcon icon={faTemperatureArrowUp} style={{ color: "#3498db" }} /> Mín:</strong> {main.temp_min}°C  
-                    <strong>  </strong>
-                    <strong> <FontAwesomeIcon icon={faTemperatureArrowDown} style={{ color: "#e74c3c" }} /> Máx:</strong> {main.temp_max}°C
+                <p className={styles.temperaturaAtual}>
+                    <FontAwesomeIcon icon={faThermometerHalf} /> {main.temp}°C
                 </p>
-                <p><strong><FontAwesomeIcon icon={faTemperatureLow} style={{ color: "#e67e22" }} /> Sensação:</strong> {main.feels_like}°C</p>
-                <p><strong><FontAwesomeIcon icon={faDroplet} style={{ color: "#3498db" }} /> Umidade:</strong> {main.humidity}%</p>
-                <p><strong><FontAwesomeIcon icon={faGaugeHigh} style={{ color: "#8e44ad" }} /> Pressão:</strong> {main.pressure} hPa</p>
-                <p><strong><FontAwesomeIcon icon={faEye} style={{ color: "#2c3e50" }} /> Visibilidade:</strong> {(visibility / 1000).toFixed(1)} km</p>
-                <p><strong><FontAwesomeIcon icon={faCloud} style={{ color: "#7f8c8d" }} /> Nuvens:</strong> {clouds.all}%</p>
-                <p><strong><FontAwesomeIcon icon={faWind} style={{ color: "#2980b9" }} /> Vento:</strong> {wind.speed} m/s, direção {wind.deg}°</p>
-                <p><strong><FontAwesomeIcon icon={faGlobe} style={{ color: "#27ae60" }} /> País:</strong> {sys.country}</p>
+
+                <div className={styles.outrosDados}>
+                    <p className={styles.infoItem}>
+                        <FontAwesomeIcon icon={faTemperatureArrowUp} /> Máx: {main.temp_max}°C
+                    </p>
+                    <p className={styles.infoItem}>
+                        <FontAwesomeIcon icon={faTemperatureArrowDown} /> Mín: {main.temp_min}°C
+                    </p>
+                    <p className={styles.infoItem}>
+                        <FontAwesomeIcon icon={faWind} /> Vento: {wind.speed} m/s
+                    </p>
+                    <p className={styles.infoItem}>
+                        <FontAwesomeIcon icon={faDroplet} /> Umidade: {main.humidity}%
+                    </p>
+                </div>
             </div>
         </div>
     );

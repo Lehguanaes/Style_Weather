@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAppContext } from "../../hooks/useAppContext";
 import styles from "./NavbarLogin.module.css";
-import homeIcon from "../../assets/icones/inicial.png";
+import homeIcon from "../../assets/icones/change.png";
 import helpImg from '../../assets/icones/help.png';
 
 import { FiltroCidade } from "../../componentes/FiltroCidade/FiltroCidade";
